@@ -26,8 +26,10 @@ pnpm-debug.log*
 # Local Netlify folder
 .netlify
 
+# AI specific files
 .github
 .claude
 .gemini
 .vscode
 .specify
+specs/
