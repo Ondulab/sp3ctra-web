@@ -25,3 +25,9 @@ pnpm-debug.log*
 
 # Local Netlify folder
 .netlify
+
+.github
+.claude
+.gemini
+.vscode
+.specify
