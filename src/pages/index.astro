@@ -1,21 +1,8 @@
 ---
-import Hero, { type HeroContent } from "../components/features/Hero.astro";
-import Footer from "../components/layout/Footer.astro";
-import Header from "../components/layout/Header.astro";
-import homeContent from "../content/copy/en/home.json";
-import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "@components/layout/Header.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-  <main>
-    <Header brandName={homeContent.header.brandName} navigation={homeContent.header.navigation} />
-    <Hero content={homeContent.hero as HeroContent} layout="split" />
-    <Footer
-      navigation={homeContent.footer.navigation}
-      contact={homeContent.footer.contact}
-      social={homeContent.footer.social}
-      legal={homeContent.footer.legal}
-      copyright={homeContent.footer.copyright}
-    />
-  </main>
+  <Header />
 </BaseLayout>

@@ -1,4 +1,5 @@
 ---
+// Fonts
 import "@fontsource/inter/400.css";
 import "@fontsource/inter/500.css";
 import "@fontsource/inter/600.css";
@@ -7,21 +8,13 @@ import "@fontsource/jetbrains-mono/400.css";
 import "@fontsource/jetbrains-mono/500.css";
 import "@fontsource/jetbrains-mono/600.css";
 
-interface Props {
-  title?: string;
-  description?: string;
-  ogImage?: string;
-  canonicalURL?: string;
-}
+// SEO
+import copy from "@content/copy/fr.json";
 
-const {
-  title = "Sp3ctra_",
-  description = "Sp3ctra_ - système de captation linéaire haute résolution de 3465 capteurs photosensibles pour artistes, chercheurs, industries et pédagoguqes.",
-  ogImage = "/images/og-image.jpg",
-  canonicalURL = Astro.url.pathname,
-} = Astro.props;
-
-const fullDescription = description;
+const title = copy.seo.title;
+const description = copy.seo.description;
+const ogImage = copy.seo.ogImage;
+const canonicalURL = Astro.url.pathname;
 
 import "../styles/global.css";
 ---
@@ -34,71 +27,59 @@ import "../styles/global.css";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
-    <meta name="description" content={fullDescription} />
+    <meta name="description" content={description} />
     <meta name="author" content="Jérôme Abel" />
     <meta name="robots" content="index, follow" />
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={fullDescription} />
+    <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
 
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={Astro.url} />
     <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={fullDescription} />
+    <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={ogImage} />
 
-    <!-- Canonical URL -->
     <link rel="canonical" href={canonicalURL} />
 
-    <!-- Schema.org Structured Data -->
     <script type="application/ld+json" is:inline>
       {
         "@context": "https://schema.org",
         "@graph": [
           {
             "@type": "Product",
-            "name": "Sp3ctra",
-            "description": "Multimedia gesture-to-sound instrument with 3465 RGB photosensitive sensors, <5ms latency, and open-source SDK",
-            "image": "https://sp3ctra.com/images/og-image.jpg",
+            "name": "Sp3ctra_",
+            "description": "Sp3ctra_ - système de captation linéaire haute résolution de 3465 capteurs photosensibles pour artistes, musiciens, chercheurs, industriels et pédagogues.",
+            "image": "https://sp3ctra.io/images/og-image.jpg",
             "brand": {
               "@type": "Brand",
-              "name": "Sp3ctra"
-            },
-            "offers": {
-              "@type": "Offer",
-              "availability": "https://schema.org/PreOrder",
-              "url": "https://sp3ctra.com"
+              "name": "Sp3ctra_"
             }
           },
           {
             "@type": "Organization",
-            "name": "Sp3ctra",
-            "url": "https://sp3ctra.com",
-            "logo": "https://sp3ctra.com/images/logo.svg",
+            "name": "Sp3ctra_",
+            "url": "https://sp3ctra.io",
+            "logo": "https://sp3ctra.io/favicon.svg",
             "contactPoint": {
               "@type": "ContactPoint",
-              "email": "dev@jeromeabel.net",
+              "email": "contact@sp3ctra.io",
               "contactType": "Customer Support"
-            },
-            "sameAs": ["https://twitter.com/sp3ctra"]
+            }
           }
         ]
       }
     </script>
 
-    <!-- Cache Control -->
     <meta http-equiv="Cache-control" content="public" />
     <meta http-equiv="Expires" content="259200" />
   </head>
-  <body>
+  <body class="grid min-h-screen auto-rows-[auto_1fr_auto]">
     <slot />
   </body>
 </html>
