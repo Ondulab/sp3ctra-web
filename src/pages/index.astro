@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/layout/Header.astro';
-import Hero from '../components/features/Hero.astro';
+import Hero, { type HeroContent } from '../components/features/Hero.astro';
 import Footer from '../components/layout/Footer.astro';
 
 // Import content
@@ -22,7 +22,7 @@ const pageDescription = '3465 RGB photosensitive sensors. <5ms latency. Open-sou
 
     <!-- Hero Section -->
     <Hero 
-      content={homeContent.hero}
+      content={homeContent.hero as HeroContent}
       layout="split"
     />
 
