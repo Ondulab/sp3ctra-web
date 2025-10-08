@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+  max-width: var(--breakpoint-xl);
+}
+
 @theme {
   /* Colors */
   --color-background: #000000;
@@ -52,14 +58,6 @@
 }
 
 /* Base Styles */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 html {
   font-family: var(--font-sans);
   font-size: var(--font-size-base);
