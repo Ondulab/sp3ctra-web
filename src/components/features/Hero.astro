@@ -1,147 +1,29 @@
 ---
-import { Image } from "astro:assets";
-import Button from "@components/base/Button.astro";
-import Heading from "@components/base/Heading.astro";
-import placeholderDevice from "@assets/images/hero/placeholder-device.svg";
-
-export interface HeroContent {
-  headline: string;
-  subheadline?: string;
-  description: string;
-  cta: {
-    label: string;
-    href: string;
-    variant?: "primary" | "secondary";
-  };
-  recognitionBadge: {
-    text: string;
-    icon?: string;
-    alt?: string;
-  };
-  imageAlt: string;
-}
-
-interface Props {
-  content: HeroContent;
-  imageSrc?: string | any; // Path or Astro ImageMetadata
-  layout?: "centered" | "split"; // Centered: text over image, Split: text + image side-by-side
-  class?: string;
-}
-
-const { content, imageSrc = placeholderDevice, layout = "split", class: className } = Astro.props;
-
-const { headline, subheadline, description, cta, recognitionBadge, imageAlt } = content;
+import sp3ctraImage from "@assets/images/sp3ctra_.png";
+import palmIcon from "@assets/images/palm.svg";
 ---
 
-<section class={`hero-section py-16 md:py-24 lg:py-32 ${className || ""}`}>
-  <div class="container mx-auto px-4 md:px-6 lg:px-8">
-    {
-      layout === "split" ? (
-        <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <div class="space-y-8">
-            <div class="flex items-center gap-3">
-              {recognitionBadge.icon && (
-                <img
-                  src={recognitionBadge.icon}
-                  alt={recognitionBadge.alt || ""}
-                  class="h-8 w-8 flex-shrink-0"
-                />
-              )}
-              <span class="text-foreground/80 text-sm font-medium">{recognitionBadge.text}</span>
-            </div>
+<section class="relative container flex h-full max-h-[800px] min-h-[600px] flex-col">
+  <div class="m-16 flex max-w-2xl flex-col gap-2 border-s ps-8">
+    <h1 class="text-foreground font-mono text-lg font-normal tracking-wide">DÉCOUVREZ SP3CTRA_</h1>
+    <p class="text-foreground text-3xl leading-tight">
+      Une nouvelle génération d'instruments pour les artistes et industriels
+    </p>
+  </div>
+  <img
+    src={sp3ctraImage.src}
+    alt="Sp3ctra_ instrument"
+    class="absolute top-1/2 -z-1 mt-8 -translate-y-1/2 -rotate-z-5"
+    loading="eager"
+  />
 
-            <div class="space-y-4">
-              <Heading as="h1" level="h1" color="gradient" class="max-w-xl">
-                {headline}
-              </Heading>
-              {subheadline && (
-                <Heading as="h2" level="h3" color="muted" class="max-w-2xl">
-                  {subheadline}
-                </Heading>
-              )}
-            </div>
-
-            <p class="text-foreground/80 max-w-2xl text-lg leading-relaxed md:text-xl">
-              {description}
-            </p>
-
-            <div class="pt-4">
-              <Button
-                href={cta.href}
-                variant={cta.variant || "primary"}
-                size="lg"
-                class="min-w-[200px]"
-              >
-                {cta.label}
-              </Button>
-            </div>
-          </div>
-
-          <div class="relative">
-            <div class="bg-surface aspect-[4/3] overflow-hidden rounded-2xl lg:aspect-[3/4]">
-              <Image
-                src={imageSrc}
-                alt={imageAlt}
-                class="h-full w-full object-cover"
-                widths={[375, 768, 1024, 1920]}
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
-                format="webp"
-                loading="eager"
-              />
-            </div>
-          </div>
-        </div>
-      ) : (
-        <div class="relative mx-auto max-w-4xl text-center">
-          <div class="absolute inset-0 -z-10 overflow-hidden rounded-3xl">
-            <Image
-              src={imageSrc}
-              alt=""
-              class="h-full w-full object-cover opacity-20"
-              widths={[768, 1024, 1920]}
-              sizes="100vw"
-              format="webp"
-              loading="eager"
-            />
-          </div>
-
-          <div class="space-y-8 py-16 md:py-24">
-            {/* Recognition Badge */}
-            <div class="flex items-center justify-center gap-3">
-              {recognitionBadge.icon && (
-                <img src={recognitionBadge.icon} alt={recognitionBadge.alt || ""} class="h-8 w-8" />
-              )}
-              <span class="text-foreground/80 text-sm font-medium">{recognitionBadge.text}</span>
-            </div>
-
-            <div class="space-y-4">
-              <Heading as="h1" level="h1" color="gradient">
-                {headline}
-              </Heading>
-              {subheadline && (
-                <Heading as="h2" level="h3" color="muted">
-                  {subheadline}
-                </Heading>
-              )}
-            </div>
-
-            <p class="text-foreground/80 mx-auto max-w-2xl text-lg leading-relaxed md:text-xl">
-              {description}
-            </p>
-
-            <div class="pt-4">
-              <Button
-                href={cta.href}
-                variant={cta.variant || "primary"}
-                size="lg"
-                class="min-w-[200px]"
-              >
-                {cta.label}
-              </Button>
-            </div>
-          </div>
-        </div>
-      )
-    }
+  <div class="mt-auto flex justify-center pb-8">
+    <div class="flex w-fit items-center">
+      <img src={palmIcon.src} alt="" class="size-10" aria-hidden="true" />
+      <p class="text-center">
+        Lauréat de l'Appel à Projets Innovants<br />Universcience 2025
+      </p>
+      <img src={palmIcon.src} alt="" class="size-10 -rotate-y-180" aria-hidden="true" />
+    </div>
   </div>
 </section>
