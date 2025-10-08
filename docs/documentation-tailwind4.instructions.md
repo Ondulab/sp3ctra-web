@@ -185,7 +185,9 @@ Use the `@utility` directive instead of `@layer utilities`:
 
 ```html
 <div class="perspective-1000">
-  <div class="rotate-x-45 rotate-y-12 scale-z-110 translate-z-24 transform-3d">3D transformed element</div>
+  <div class="translate-z-24 scale-z-110 rotate-x-45 rotate-y-12 transform-3d">
+    3D transformed element
+  </div>
 </div>
 ```
 
@@ -205,17 +207,14 @@ Use the `@utility` directive instead of `@layer utilities`:
 ### Text Shadows
 
 ```html
-<h1 class="text-shadow-lg text-shadow-blue-500/50">Text with colored shadow</h1>
+<h1 class="text-shadow-blue-500/50 text-shadow-lg">Text with colored shadow</h1>
 ```
 
 ### Mask Utilities
 
 ```html
 <div class="mask-radial mask-cover">
-  <img
-    src="image.jpg"
-    alt="Masked image"
-  />
+  <img src="image.jpg" alt="Masked image" />
 </div>
 ```
 
@@ -224,7 +223,7 @@ Use the `@utility` directive instead of `@layer utilities`:
 #### @starting-style (for animations)
 
 ```html
-<div class="opacity-100 @starting-style:opacity-0 transition-opacity">Animates in on mount</div>
+<div class="@starting-style:opacity-0 opacity-100 transition-opacity">Animates in on mount</div>
 ```
 
 #### not-\* variant
@@ -236,13 +235,13 @@ Use the `@utility` directive instead of `@layer utilities`:
 #### nth-\* variants
 
 ```html
-<div class="nth-2:bg-red-500 nth-odd:bg-blue-500">Nth child styling</div>
+<div class="nth-odd:bg-blue-500 nth-2:bg-red-500">Nth child styling</div>
 ```
 
 #### inert variant
 
 ```html
-<div class="inert:opacity-50 inert:pointer-events-none">Styled when inert</div>
+<div class="inert:pointer-events-none inert:opacity-50">Styled when inert</div>
 ```
 
 #### in-_ variant (like group-_ but without group class)
@@ -365,7 +364,9 @@ src/
 ### Animation with @starting-style
 
 ```html
-<div class="translate-y-0 @starting-style:translate-y-full transition-transform duration-500">Slides up on mount</div>
+<div class="@starting-style:translate-y-full translate-y-0 transition-transform duration-500">
+  Slides up on mount
+</div>
 ```
 
 ## Debugging Tips
@@ -1454,7 +1455,7 @@ m-[12px], p-[24px], grid-cols-[200px_minmax(900px,_1fr)_100px]
 <div class="size-12"></div>
 
 <!-- Instead of: -->
-<div class="w-12 h-12"></div>
+<div class="h-12 w-12"></div>
 
 <!-- Good: Use container queries for component responsiveness -->
 <div class="@container">
@@ -1559,26 +1560,18 @@ npx @tailwindcss/upgrade@next
 ### Modern Card Component
 
 ```html
-<div class="@container group">
+<div class="group @container">
   <article
-    class="
-    bg-white dark:bg-gray-900
-    rounded-xl shadow-sm border border-gray-200 dark:border-gray-800
-    overflow-hidden transition-all duration-200
-    hover:shadow-md hover:-translate-y-0.5
-    @sm:flex @sm:items-center
-  "
+    class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md @sm:flex @sm:items-center dark:border-gray-800 dark:bg-gray-900"
   >
     <div class="@sm:flex-shrink-0">
-      <img
-        class="h-48 w-full object-cover @sm:h-full @sm:w-48"
-        src="..."
-        alt="..."
-      />
+      <img class="h-48 w-full object-cover @sm:h-full @sm:w-48" src="..." alt="..." />
     </div>
     <div class="p-6 @sm:p-8">
-      <h3 class="text-lg font-semibold text-gray-900 dark:text-white @lg:text-xl">Card Title</h3>
-      <p class="mt-2 text-gray-600 dark:text-gray-300 @lg:text-lg">Card description that adapts to container size.</p>
+      <h3 class="text-lg font-semibold text-gray-900 @lg:text-xl dark:text-white">Card Title</h3>
+      <p class="mt-2 text-gray-600 @lg:text-lg dark:text-gray-300">
+        Card description that adapts to container size.
+      </p>
     </div>
   </article>
 </div>
@@ -1588,14 +1581,7 @@ npx @tailwindcss/upgrade@next
 
 ```html
 <button
-  class="
-  relative px-6 py-3 bg-blue-600 text-white font-medium rounded-lg
-  transform-3d perspective-1000
-  transition-all duration-200
-  hover:rotate-x-12 hover:scale-105 hover:shadow-xl
-  active:scale-95 active:rotate-x-6
-  focus:outline-none focus:ring-2 focus:ring-blue-500/50
-"
+  class="perspective-1000 relative rounded-lg bg-blue-600 px-6 py-3 font-medium text-white transition-all duration-200 transform-3d hover:scale-105 hover:rotate-x-12 hover:shadow-xl focus:ring-2 focus:ring-blue-500/50 focus:outline-none active:scale-95 active:rotate-x-6"
 >
   3D Button
 </button>

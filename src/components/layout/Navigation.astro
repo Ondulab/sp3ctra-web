@@ -14,7 +14,7 @@ const { links, class: className = "" } = Astro.props;
 ---
 
 <nav aria-label="Main navigation" class={className}>
-  <ul class="flex flex-col md:flex-row gap-4 md:gap-8">
+  <ul class="flex flex-col gap-4 md:flex-row md:gap-8">
     {
       links.map((link) => (
         <li>
@@ -22,7 +22,7 @@ const { links, class: className = "" } = Astro.props;
             href={link.href}
             target={link.external ? "_blank" : undefined}
             rel={link.external ? "noopener noreferrer" : undefined}
-            class="text-foreground/80 hover:text-foreground transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-sm px-2 py-1"
+            class="text-foreground/80 hover:text-foreground focus:ring-primary focus:ring-offset-background rounded-sm px-2 py-1 transition-colors duration-200 focus:ring-2 focus:ring-offset-2 focus:outline-none"
           >
             {link.label}
           </a>

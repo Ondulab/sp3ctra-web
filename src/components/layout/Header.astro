@@ -1,5 +1,5 @@
 ---
-import Navigation from './Navigation.astro';
+import Navigation from "./Navigation.astro";
 
 interface NavigationLink {
   label: string;
@@ -20,32 +20,30 @@ const {
   navigation = [],
   sticky = false,
   transparent = false,
-  class: className
+  class: className,
 } = Astro.props;
 ---
 
-<header 
-  class={`header w-full z-50  ${
-    sticky ? 'sticky top-0' : ''
-  } ${
-    transparent ? 'bg-transparent' : 'bg-background border-b border-border'
-  } ${className || ''}`}
+<header
+  class={`header w-full z-50  ${sticky ? "sticky top-0" : ""} ${
+    transparent ? "bg-transparent" : "bg-background border-b border-border"
+  } ${className || ""}`}
 >
   <div class="container mx-auto px-4 md:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16 md:h-20">
+    <div class="flex h-16 items-center justify-between md:h-20">
       <!-- Brand Name -->
       <div class="flex items-center">
-        <a 
-          href="/" 
-          class="text-2xl md:text-3xl font-mono font-bold text-foreground hover:text-primary transition-colors duration-200"
+        <a
+          href="/"
+          class="text-foreground hover:text-primary font-mono text-2xl font-bold transition-colors duration-200 md:text-3xl"
           aria-label="Sp3ctra homepage"
         >
-          {brandName} 
+          {brandName}
         </a>
       </div>
 
       <!-- Desktop Navigation -->
-      <div class="hidden md:flex items-center">
+      <div class="hidden items-center md:flex">
         {navigation.length > 0 && <Navigation links={navigation} />}
       </div>
 
@@ -56,7 +54,7 @@ const {
           aria-expanded="false"
           aria-controls="mobile-nav"
           aria-label="Toggle navigation menu"
-          class="inline-flex items-center justify-center p-2 rounded-md text-foreground hover:text-primary hover:bg-surface focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-colors duration-200"
+          class="text-foreground hover:text-primary hover:bg-surface focus:ring-primary focus:ring-offset-background inline-flex items-center justify-center rounded-md p-2 transition-colors duration-200 focus:ring-2 focus:ring-offset-2 focus:outline-none"
           style="min-width: 44px; min-height: 44px;"
         >
           <svg
@@ -71,34 +69,35 @@ const {
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
+              d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </button>
       </div>
     </div>
 
     <!-- Mobile Navigation Menu -->
-    {navigation.length > 0 && (
-      <div
-        id="mobile-nav"
-        class="hidden md:hidden border-t border-border mt-2 pt-4 pb-6"
-        aria-hidden="true"
-      >
-        <Navigation links={navigation} />
-      </div>
-    )}
+    {
+      navigation.length > 0 && (
+        <div
+          id="mobile-nav"
+          class="border-border mt-2 hidden border-t pt-4 pb-6 md:hidden"
+          aria-hidden="true"
+        >
+          <Navigation links={navigation} />
+        </div>
+      )
+    }
   </div>
 </header>
 
 <script>
-  const toggle = document.getElementById('mobile-menu-toggle');
-  const nav = document.getElementById('mobile-nav');
+  const toggle = document.getElementById("mobile-menu-toggle");
+  const nav = document.getElementById("mobile-nav");
 
-  toggle?.addEventListener('click', () => {
-    const expanded = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!expanded));
-    nav?.setAttribute('aria-hidden', String(expanded));
-    nav?.classList.toggle('hidden');
+  toggle?.addEventListener("click", () => {
+    const expanded = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!expanded));
+    nav?.setAttribute("aria-hidden", String(expanded));
+    nav?.classList.toggle("hidden");
   });
 </script>

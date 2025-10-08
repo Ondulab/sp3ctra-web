@@ -259,13 +259,13 @@ Components follow a **variant-based approach** using `tailwind-variants`:
 import { tv, type VariantProps } from "tailwind-variants";
 
 const styles = tv({
-    base: "bg-blue-500 px-4 py-2 text-white rounded-md",
-    variants: {
-        variant: {
-            secondary: "bg-orange-500",
-            ghost: "bg-transparent border",
-        },
+  base: "bg-blue-500 px-4 py-2 text-white rounded-md",
+  variants: {
+    variant: {
+      secondary: "bg-orange-500",
+      ghost: "bg-transparent border",
     },
+  },
 });
 ```
 
@@ -372,6 +372,7 @@ When creating content or components, understand the product positioning:
 **Sophisticated Minimalism**: Design choices prioritize clarity, precision, and technological elegance over decorative elements. Every visual decision serves a functional purpose.
 
 **Strategic Simplicity**: With one developer, focus on:
+
 - High-impact, low-maintenance design patterns
 - Reusable component architecture
 - Utility-first CSS approach (Tailwind) for rapid iteration
@@ -380,23 +381,27 @@ When creating content or components, understand the product positioning:
 ### Visual Language
 
 **Typography Hierarchy**:
+
 - Use weight variation (400, 500, 600) rather than multiple font families
 - JetBrains Mono for technical/innovative feel in headlines
 - Inter for readability in body text
 - Generous line-height (1.6-1.7) and strategic white space
 
 **Color Strategy**:
+
 - Pure black background (#000000) conveys technological precision
 - Spectral gradient (purple #FF56D8 to blue #508AFF) represents the product's essence
 - Gold/copper accents for "innovation sonore" recognition
 - Semantic colors using CSS variables for maintainability
 
 **Spacing System**:
+
 - Use consistent spacing scale (4px, 8px, 12px, 16px, 24px, 32px, 48px, 64px)
 - Generous margins between sections (64px+) for premium feel
 - Avoid cramped layouts—white space is a feature, not waste
 
 **Component Design**:
+
 - Cards with subtle borders/shadows for depth without heaviness
 - Consistent border-radius (8-12px) for modern but professional feel
 - Hover states with smooth transitions (150-300ms)
@@ -405,6 +410,7 @@ When creating content or components, understand the product positioning:
 ### Solo Developer Best Practices
 
 **Efficiency Without Compromise**:
+
 1. **Use tailwind-variants** for component variations—minimal code, maximum flexibility
 2. **Establish design tokens early** (colors, spacing, typography) in Tailwind config
 3. **Create base components** (Button, Card, Heading, Input) before building features
@@ -412,12 +418,14 @@ When creating content or components, understand the product positioning:
 5. **Use composition** over duplication—build complex UIs from simple primitives
 
 **What to Avoid**:
+
 - Custom animations beyond simple transitions (time sink, maintenance burden)
 - Pixel-perfect positioning—use flexbox/grid with semantic spacing
 - Over-engineered state management—start simple with Vue composition API
 - Multiple component libraries—stick to your base components + Tailwind
 
 **Quality Shortcuts That Work**:
+
 - Use system fonts as fallbacks (font-display: swap)
 - Optimize images once during build, not runtime
 - Leverage Astro's automatic optimizations
@@ -427,6 +435,7 @@ When creating content or components, understand the product positioning:
 ### Visual Hierarchy Guidelines
 
 **Information Architecture**:
+
 1. **Hero section**: Clear value proposition + single primary CTA
 2. **Feature sections**: 3-4 key benefits with icons/visuals
 3. **Proof/Validation**: Recognition badge, testimonials (when available)
@@ -434,6 +443,7 @@ When creating content or components, understand the product positioning:
 5. **CTA sections**: Newsletter signup, partnerships, pre-order
 
 **Contrast & Emphasis**:
+
 - Headlines: Bold weight (600) + larger size
 - Primary CTAs: High-contrast gradient buttons
 - Secondary CTAs: Outlined or ghost buttons
@@ -441,6 +451,7 @@ When creating content or components, understand the product positioning:
 - Labels/metadata: Lower contrast, smaller size
 
 **Responsive Strategy**:
+
 - Mobile-first approach (most traffic is mobile)
 - Breakpoints: 640px (sm), 768px (md), 1024px (lg), 1280px (xl)
 - Stack elements vertically on mobile, grid on desktop
@@ -449,12 +460,14 @@ When creating content or components, understand the product positioning:
 ### Brand Consistency
 
 **Vocabulary & Tone**:
+
 - Refer to `src/content/copy/` for approved messaging
 - Use technical precision without jargon
 - Avoid terms: "scanner" (bureautique), "synthesizer" (limits perception)
 - Prefer: "dispositif", "instrument", "interface", "flux continu", "temps réel"
 
 **Imagery Guidelines**:
+
 - Show the device in use (hands, gestures, human context)
 - Use spectral gradient overlays to unify diverse images
 - Avoid stock photos—authentic visuals only
@@ -463,6 +476,7 @@ When creating content or components, understand the product positioning:
 ### Technical Implementation Patterns
 
 **Component Structure Example**:
+
 ```vue
 <script setup lang="ts">
 import { tv, type VariantProps } from "tailwind-variants";
@@ -496,12 +510,13 @@ interface Props extends VariantProps<typeof styles> {
 const { variant, size, href } = Astro.props;
 </script>
 
-<a href={href} class={styles({ variant, size })}>
+<a href="{href}" class="{styles({" variant, size })}>
   <slot />
 </a>
 ```
 
 **Responsive Utilities**:
+
 ```html
 <!-- Mobile-first approach -->
 <div class="flex flex-col gap-4 md:flex-row md:gap-8">
@@ -515,9 +530,12 @@ const { variant, size, href } = Astro.props;
 ```
 
 **Accessibility Patterns**:
+
 ```html
 <!-- Always include focus states -->
-<button class="focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background">
+<button
+  class="focus:ring-primary focus:ring-offset-background focus:ring-2 focus:ring-offset-2 focus:outline-none"
+>
   Action
 </button>
 
@@ -559,16 +577,19 @@ Refer to `docs/prompts/create-a-landing-page.prompt.md` for comprehensive guidan
 ## Error Handling & Edge Cases
 
 **Form Validation**:
+
 - Client-side validation with clear error messages
 - Server-side validation on API endpoints
 - Graceful error states with retry options
 
 **Loading States**:
+
 - Skeleton screens for content-heavy sections
 - Inline spinners for form submissions
 - Toast notifications for async operations
 
 **Empty States**:
+
 - Helpful messages when no content available
 - Clear CTAs to guide users forward
 - Maintain brand consistency in error/empty states

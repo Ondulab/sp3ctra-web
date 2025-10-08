@@ -1,32 +1,15 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/layout/Header.astro';
-import Hero, { type HeroContent } from '../components/features/Hero.astro';
-import Footer from '../components/layout/Footer.astro';
-
-// Import content
-import homeContent from '../content/copy/en/home.json';
-
-// Page metadata
-const pageTitle = 'Sp3ctra - Transform gestures into sound in real-time';
-const pageDescription = '3465 RGB photosensitive sensors. <5ms latency. Open-source SDK.';
+import Hero, { type HeroContent } from "../components/features/Hero.astro";
+import Footer from "../components/layout/Footer.astro";
+import Header from "../components/layout/Header.astro";
+import homeContent from "../content/copy/en/home.json";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title={pageTitle} description={pageDescription}>
+<BaseLayout>
   <main>
-    <!-- Header Component -->
-    <Header
-      brandName={homeContent.header.brandName}
-      navigation={homeContent.header.navigation}
-    />
-
-    <!-- Hero Section -->
-    <Hero 
-      content={homeContent.hero as HeroContent}
-      layout="split"
-    />
-
-    <!-- Footer Component -->
+    <Header brandName={homeContent.header.brandName} navigation={homeContent.header.navigation} />
+    <Hero content={homeContent.hero as HeroContent} layout="split" />
     <Footer
       navigation={homeContent.footer.navigation}
       contact={homeContent.footer.contact}

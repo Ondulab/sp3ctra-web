@@ -1,12 +1,11 @@
 ---
-// Import fonts with specific weights
-import '@fontsource/inter/400.css';
-import '@fontsource/inter/500.css';
-import '@fontsource/inter/600.css';
-import '@fontsource/jetbrains-mono/200.css';
-import '@fontsource/jetbrains-mono/400.css';
-import '@fontsource/jetbrains-mono/500.css';
-import '@fontsource/jetbrains-mono/600.css';
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/jetbrains-mono/200.css";
+import "@fontsource/jetbrains-mono/400.css";
+import "@fontsource/jetbrains-mono/500.css";
+import "@fontsource/jetbrains-mono/600.css";
 
 interface Props {
   title?: string;
@@ -16,17 +15,15 @@ interface Props {
 }
 
 const {
-  title = 'Sp3ctra - Multimedia Gesture-to-Sound Instrument',
-  description = '3465 RGB photosensitive sensors. <5ms latency. Open-source SDK.',
-  ogImage = '/images/og-image.jpg',
+  title = "Sp3ctra_",
+  description = "Sp3ctra_ - système de captation linéaire haute résolution de 3465 capteurs photosensibles pour artistes, chercheurs, industries et pédagoguqes.",
+  ogImage = "/images/og-image.jpg",
   canonicalURL = Astro.url.pathname,
 } = Astro.props;
 
-const fullTitle = title;
 const fullDescription = description;
 
 import "../styles/global.css";
-
 ---
 
 <!doctype html>
@@ -38,8 +35,8 @@ import "../styles/global.css";
     <meta name="generator" content={Astro.generator} />
 
     <!-- Primary Meta Tags -->
-    <title>{fullTitle}</title>
-    <meta name="title" content={fullTitle} />
+    <title>{title}</title>
+    <meta name="title" content={title} />
     <meta name="description" content={fullDescription} />
     <meta name="author" content="Jérôme Abel" />
     <meta name="robots" content="index, follow" />
@@ -47,14 +44,14 @@ import "../styles/global.css";
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
-    <meta property="og:title" content={fullTitle} />
+    <meta property="og:title" content={title} />
     <meta property="og:description" content={fullDescription} />
     <meta property="og:image" content={ogImage} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={Astro.url} />
-    <meta property="twitter:title" content={fullTitle} />
+    <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={fullDescription} />
     <meta property="twitter:image" content={ogImage} />
 
@@ -91,14 +88,11 @@ import "../styles/global.css";
               "email": "dev@jeromeabel.net",
               "contactType": "Customer Support"
             },
-            "sameAs": [
-              "https://twitter.com/sp3ctra"
-            ]
+            "sameAs": ["https://twitter.com/sp3ctra"]
           }
         ]
       }
     </script>
-
 
     <!-- Cache Control -->
     <meta http-equiv="Cache-control" content="public" />

@@ -23,19 +23,16 @@ const headingStyles = tv({
 });
 
 interface Props extends VariantProps<typeof headingStyles> {
-  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'; // Semantic HTML element
+  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6"; // Semantic HTML element
   class?: string;
 }
 
 const { as, class: className, level, color, ...rest } = Astro.props;
 
 // Determine the HTML element to use - 'as' prop takes precedence, otherwise use 'level'
-const Element = as || level || 'h2';
+const Element = as || level || "h2";
 ---
 
-<Element 
-  class={headingStyles({ level, color, className })}
-  {...rest}
->
+<Element class={headingStyles({ level, color, className })} {...rest}>
   <slot />
 </Element>
