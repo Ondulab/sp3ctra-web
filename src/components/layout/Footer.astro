@@ -1,0 +1,127 @@
+---
+import Navigation from './Navigation.astro';
+
+interface NavigationLink {
+  label: string;
+  href: string;
+  external?: boolean;
+}
+
+interface ContactInfo {
+  email: string;
+  phone?: string;
+}
+
+interface SocialLink {
+  platform: string;
+  href: string;
+  icon?: string;
+  ariaLabel: string;
+}
+
+interface LegalLinks {
+  privacyPolicy?: string;
+  termsOfService?: string;
+}
+
+interface Props {
+  navigation: NavigationLink[];
+  contact: ContactInfo;
+  social?: SocialLink[];
+  legal: LegalLinks;
+  copyright: string;
+  class?: string;
+}
+
+const {
+  navigation,
+  contact,
+  social = [],
+  legal,
+  copyright,
+  class: className = ""
+} = Astro.props;
+---
+
+<footer class={`bg-background border-t border-border ${className}`}>
+  <div class="container mx-auto px-4 md:px-6 lg:px-8 py-12 md:py-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+      <!-- Navigation Links -->
+      <div>
+        <h3 class="text-lg font-semibold text-foreground mb-4">Navigation</h3>
+        <Navigation links={navigation} />
+      </div>
+
+      <!-- Contact Information -->
+      <div>
+        <h3 class="text-lg font-semibold text-foreground mb-4">Contact</h3>
+        <div class="space-y-2">
+          <a
+            href={`mailto:${contact.email}`}
+            class="text-foreground/80 hover:text-foreground transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-sm inline-block"
+          >
+            {contact.email}
+          </a>
+          {contact.phone && (
+            <p class="text-foreground/80">
+              <a
+                href={`tel:${contact.phone}`}
+                class="hover:text-foreground transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-sm"
+              >
+                {contact.phone}
+              </a>
+            </p>
+          )}
+        </div>
+      </div>
+
+      <!-- Social Links -->
+      <div>
+        <h3 class="text-lg font-semibold text-foreground mb-4">Follow Us</h3>
+        {social.length > 0 && (
+          <ul class="flex flex-col gap-2">
+            {social.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.ariaLabel}
+                  class="text-foreground/80 hover:text-foreground transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-sm inline-block"
+                  style="min-width: 44px; min-height: 44px; display: inline-flex; align-items: center;"
+                >
+                  {link.platform}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
+
+    <!-- Legal Links and Copyright -->
+    <div class="mt-12 pt-8 border-t border-border">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="flex flex-wrap gap-4 text-sm">
+          {legal.privacyPolicy && (
+            <a
+              href={legal.privacyPolicy}
+              class="text-foreground/60 hover:text-foreground transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-sm"
+            >
+              Privacy Policy
+            </a>
+          )}
+          {legal.termsOfService && (
+            <a
+              href={legal.termsOfService}
+              class="text-foreground/60 hover:text-foreground transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background rounded-sm"
+            >
+              Terms of Service
+            </a>
+          )}
+        </div>
+        <p class="text-sm text-foreground/60">{copyright}</p>
+      </div>
+    </div>
+  </div>
+</footer>

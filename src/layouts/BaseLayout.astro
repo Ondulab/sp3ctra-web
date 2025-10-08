@@ -1,0 +1,110 @@
+---
+// Import fonts with specific weights
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/jetbrains-mono/200.css';
+import '@fontsource/jetbrains-mono/400.css';
+import '@fontsource/jetbrains-mono/500.css';
+import '@fontsource/jetbrains-mono/600.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  canonicalURL?: string;
+}
+
+const {
+  title = 'Sp3ctra - Multimedia Gesture-to-Sound Instrument',
+  description = '3465 RGB photosensitive sensors. <5ms latency. Open-source SDK.',
+  ogImage = '/images/og-image.jpg',
+  canonicalURL = Astro.url.pathname,
+} = Astro.props;
+
+const fullTitle = title;
+const fullDescription = description;
+
+import "../styles/global.css";
+
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={fullDescription} />
+    <meta name="author" content="Jérôme Abel" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={fullDescription} />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={fullTitle} />
+    <meta property="twitter:description" content={fullDescription} />
+    <meta property="twitter:image" content={ogImage} />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Product",
+            "name": "Sp3ctra",
+            "description": "Multimedia gesture-to-sound instrument with 3465 RGB photosensitive sensors, <5ms latency, and open-source SDK",
+            "image": "https://sp3ctra.com/images/og-image.jpg",
+            "brand": {
+              "@type": "Brand",
+              "name": "Sp3ctra"
+            },
+            "offers": {
+              "@type": "Offer",
+              "availability": "https://schema.org/PreOrder",
+              "url": "https://sp3ctra.com"
+            }
+          },
+          {
+            "@type": "Organization",
+            "name": "Sp3ctra",
+            "url": "https://sp3ctra.com",
+            "logo": "https://sp3ctra.com/images/logo.svg",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "email": "dev@jeromeabel.net",
+              "contactType": "Customer Support"
+            },
+            "sameAs": [
+              "https://twitter.com/sp3ctra"
+            ]
+          }
+        ]
+      }
+    </script>
+
+
+    <!-- Cache Control -->
+    <meta http-equiv="Cache-control" content="public" />
+    <meta http-equiv="Expires" content="259200" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

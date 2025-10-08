@@ -1,11 +1,46 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Hero from '../components/features/Hero.astro';
+import Footer from '../components/layout/Footer.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Import content
+import homeContent from '../content/copy/en/home.json';
+
+// Page metadata
+const pageTitle = 'Sp3ctra - Transform gestures into sound in real-time';
+const pageDescription = '3465 RGB photosensitive sensors. <5ms latency. Open-source SDK.';
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <main>
+    <!-- Header Component -->
+    <Header
+      brandName={homeContent.header.brandName}
+      navigation={homeContent.header.navigation}
+    />
+
+    <!-- Hero Section -->
+    <Hero 
+      headline={homeContent.hero.headline}
+      description={homeContent.hero.description}
+      cta={{
+        label: homeContent.hero.cta.label,
+        href: homeContent.hero.cta.href,
+        variant: homeContent.hero.cta.variant as 'primary' | 'secondary'
+      }}
+      recognitionBadge={homeContent.hero.recognitionBadge}
+      imageAlt={homeContent.hero.imageAlt}
+      layout="split"
+    />
+
+    <!-- Footer Component -->
+    <Footer
+      navigation={homeContent.footer.navigation}
+      contact={homeContent.footer.contact}
+      social={homeContent.footer.social}
+      legal={homeContent.footer.legal}
+      copyright={homeContent.footer.copyright}
+    />
+  </main>
+</BaseLayout>

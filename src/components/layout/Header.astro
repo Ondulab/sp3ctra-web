@@ -1,0 +1,104 @@
+---
+import Navigation from './Navigation.astro';
+
+interface NavigationLink {
+  label: string;
+  href: string;
+  external?: boolean;
+}
+
+interface Props {
+  brandName: string;
+  navigation?: NavigationLink[];
+  sticky?: boolean;
+  transparent?: boolean;
+  class?: string;
+}
+
+const {
+  brandName,
+  navigation = [],
+  sticky = false,
+  transparent = false,
+  class: className
+} = Astro.props;
+---
+
+<header 
+  class={`header w-full z-50  ${
+    sticky ? 'sticky top-0' : ''
+  } ${
+    transparent ? 'bg-transparent' : 'bg-background border-b border-border'
+  } ${className || ''}`}
+>
+  <div class="container mx-auto px-4 md:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      <!-- Brand Name -->
+      <div class="flex items-center">
+        <a 
+          href="/" 
+          class="text-2xl md:text-3xl font-mono font-bold text-foreground hover:text-primary transition-colors duration-200"
+          aria-label="Sp3ctra homepage"
+        >
+          {brandName} 
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center">
+        {navigation.length > 0 && <Navigation links={navigation} />}
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <button
+          id="mobile-menu-toggle"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+          aria-label="Toggle navigation menu"
+          class="inline-flex items-center justify-center p-2 rounded-md text-foreground hover:text-primary hover:bg-surface focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background transition-colors duration-200"
+          style="min-width: 44px; min-height: 44px;"
+        >
+          <svg
+            class="h-6 w-6"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    {navigation.length > 0 && (
+      <div
+        id="mobile-nav"
+        class="hidden md:hidden border-t border-border mt-2 pt-4 pb-6"
+        aria-hidden="true"
+      >
+        <Navigation links={navigation} />
+      </div>
+    )}
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const nav = document.getElementById('mobile-nav');
+
+  toggle?.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!expanded));
+    nav?.setAttribute('aria-hidden', String(expanded));
+    nav?.classList.toggle('hidden');
+  });
+</script>

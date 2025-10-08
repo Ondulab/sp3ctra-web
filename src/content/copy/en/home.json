@@ -1,0 +1,48 @@
+{
+  "header": {
+    "brandName": "Sp3ctra",
+    "navigation": [
+      { "label": "Product", "href": "#product" },
+      { "label": "Applications", "href": "#applications" },
+      { "label": "About", "href": "#about" },
+      { "label": "Contact", "href": "#contact" }
+    ]
+  },
+  "hero": {
+    "headline": "Transform gestures into sound in real-time",
+    "description": "3465 RGB photosensitive sensors. <5ms latency. Open-source SDK.",
+    "cta": {
+      "label": "Subscribe to Newsletter",
+      "href": "/newsletter",
+      "variant": "primary"
+    },
+    "recognitionBadge": {
+      "text": "Lauréat AAP Innovation Sonore - Cité des Sciences 2025",
+      "icon": "/images/badge-innovation-sonore.svg",
+      "alt": "Award badge for Innovation Sonore 2025"
+    },
+    "imageAlt": "Sp3ctra device in use with hands performing gestures for sound control"
+  },
+  "footer": {
+    "navigation": [
+      { "label": "Product", "href": "#product" },
+      { "label": "Applications", "href": "#applications" },
+      { "label": "About", "href": "#about" },
+      { "label": "Contact", "href": "#contact" }
+    ],
+    "contact": {
+      "email": "dev@jeromeabel.net"
+    },
+    "social": [
+      {
+        "platform": "Twitter",
+        "href": "https://twitter.com/sp3ctra",
+        "ariaLabel": "Follow Sp3ctra on Twitter"
+      }
+    ],
+    "legal": {
+      "privacyPolicy": "/privacy"
+    },
+    "copyright": "© 2025 Sp3ctra. All rights reserved."
+  }
+}
