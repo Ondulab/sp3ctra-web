@@ -1,7 +1,5 @@
 @import "tailwindcss";
-@import "tailwindcss/utilities";
 
-/* Sp3ctra Design Tokens */
 @theme {
   /* Colors */
   --color-background: #000000;
