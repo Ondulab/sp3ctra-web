@@ -4,7 +4,7 @@ import Heading from '../base/Heading.astro';
 import Button from '../base/Button.astro';
 import placeholderDevice from '../../assets/images/hero/placeholder-device.svg';
 
-interface Props {
+interface HeroContent {
   headline: string;
   subheadline?: string;
   description: string;
@@ -18,23 +18,24 @@ interface Props {
     icon?: string;
     alt?: string;
   };
-  imageSrc?: string | any; // Path or Astro ImageMetadata
   imageAlt: string;
+}
+
+interface Props {
+  content: HeroContent;
+  imageSrc?: string | any; // Path or Astro ImageMetadata
   layout?: 'centered' | 'split';    // Centered: text over image, Split: text + image side-by-side
   class?: string;
 }
 
 const { 
-  headline, 
-  subheadline, 
-  description, 
-  cta, 
-  recognitionBadge, 
+  content,
   imageSrc = placeholderDevice, 
-  imageAlt, 
   layout = 'split',
   class: className 
 } = Astro.props;
+
+const { headline, subheadline, description, cta, recognitionBadge, imageAlt } = content;
 ---
 
 <section class={`hero-section py-16 md:py-24 lg:py-32 ${className || ''}`}>
