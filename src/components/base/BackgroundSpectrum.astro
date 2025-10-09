@@ -1,0 +1,19 @@
+---
+import { Picture } from "astro:assets";
+import spectrumBg from "@assets/images/bg-spectrum.jpg";
+---
+
+<div class="fixed inset-0 -z-10 opacity-40">
+  <div class="relative h-full w-full">
+    <Picture
+      src={spectrumBg}
+      alt=""
+      widths={[640, 768, 1024, 1280, 1920]}
+      sizes="100vw"
+      formats={["avif", "webp"]}
+      class="absolute w-full"
+      priority
+      aria-hidden="true"
+    />
+  </div>
+</div>

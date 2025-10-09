@@ -2,14 +2,14 @@
 // SEO
 import copy from "@content/copy/fr.json";
 
+import BackgroundSpectrum from "@components/base/BackgroundSpectrum.astro";
+
 const title = copy.seo.title;
 const description = copy.seo.description;
 const ogImage = copy.seo.ogImage;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 import "../styles/global.css";
-import { Picture } from "astro:assets";
-import spectrumBg from "../assets/images/bg-spectrum.jpg";
 ---
 
 <!doctype html>
@@ -73,23 +73,8 @@ import spectrumBg from "../assets/images/bg-spectrum.jpg";
     <meta http-equiv="Expires" content="259200" />
   </head>
   <body class="relative grid min-h-screen auto-rows-[auto_1fr_auto]">
-    <div class="fixed inset-0 -z-10 opacity-40">
-      <div class="relative h-full w-full">
-        <Picture
-          src={spectrumBg}
-          alt=""
-          widths={[640, 768, 1024, 1280, 1920]}
-          sizes="100vw"
-          formats={["avif", "webp"]}
-          class="absolute w-full"
-          priority
-          aria-hidden="true"
-        />
-      </div>
-    </div>
-
+    <BackgroundSpectrum />
     <slot />
-
     <script>
       import { initFadeInImages } from "@scripts/animations";
       initFadeInImages();
