@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Picture, Image } from "astro:assets";
 
 import sp3ctraImage from "@assets/images/sp3ctra_.png";
 import palmIcon from "@assets/images/palm.svg";
@@ -12,12 +12,16 @@ import palmIcon from "@assets/images/palm.svg";
       Une nouvelle génération d'instruments pour les artistes et industriels
     </p>
   </div>
-  <Image
+  <Picture
     src={sp3ctraImage}
     alt="Sp3ctra_ instrument"
+    widths={[640, 768, 1024, 1280, 1536]}
+    sizes="(max-width: 640px) 640px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, (max-width: 1280px) 1280px, 1536px"
+    formats={["avif", "webp"]}
     class="absolute top-1/2 -z-1 mt-8 -translate-y-1/2 -rotate-z-5 opacity-0"
     data-fade-in
-    priority
+    loading="eager"
+    fetchpriority="high"
   />
 
   <div class="mt-auto flex justify-center pb-8">
