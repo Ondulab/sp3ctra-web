@@ -9,10 +9,23 @@
 @utility container {
   margin-inline: auto;
   padding-inline: 1rem;
-  max-width: var(--breakpoint-xl);
+  max-width: 100%;
+
+  @media (min-width: 768px) {
+    padding-inline: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    max-width: 1280px;
+  }
 }
 
 @theme {
+  /* Breakpoints - Mobile First Approach */
+  /* Mobile: 0-767px (default) */
+  /* Tablet/Desktop: 768px+ (md:) */
+  /* Large Desktop: 1024px+ (lg:) */
+
   /* Colors */
   --color-background: #000000;
   --color-foreground: #ffffff;
@@ -47,7 +60,7 @@
   --transition-normal: 200ms;
   --transition-slow: 300ms;
 
-  /* Typography Scale */
+  /* Typography Scale - Mobile First */
   --font-size-base: 16px;
   --font-size-lg: 18px;
   --font-size-xl: 20px;

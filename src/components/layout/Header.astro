@@ -5,8 +5,10 @@ import Mail from "@lucide/astro/icons/mail";
 ---
 
 <header>
-  <div class="container flex h-20 items-center justify-between">
-    <a href="/" aria-label="Sp3ctra homepage" class="text-lg font-semibold">{copy.seo.title}</a>
+  <div class="container flex h-16 items-center justify-between md:h-20">
+    <a href="/" aria-label="Sp3ctra homepage" class="text-base font-semibold md:text-lg"
+      >{copy.seo.title}</a
+    >
     <Button size="sm" icon={Mail}>{copy.buttons.demo}</Button>
   </div>
 </header>
