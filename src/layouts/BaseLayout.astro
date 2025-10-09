@@ -1,13 +1,4 @@
 ---
-// Fonts
-import "@fontsource/inter/400.css";
-import "@fontsource/inter/500.css";
-import "@fontsource/inter/600.css";
-import "@fontsource/jetbrains-mono/200.css";
-import "@fontsource/jetbrains-mono/400.css";
-import "@fontsource/jetbrains-mono/500.css";
-import "@fontsource/jetbrains-mono/600.css";
-
 // SEO
 import copy from "@content/copy/fr.json";
 
@@ -17,7 +8,7 @@ const ogImage = copy.seo.ogImage;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 import "../styles/global.css";
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import spectrumBg from "../assets/images/spectrum3.jpg";
 ---
 
@@ -84,14 +75,14 @@ import spectrumBg from "../assets/images/spectrum3.jpg";
   <body class="relative grid min-h-screen auto-rows-[auto_1fr_auto]">
     <div class="bg-background fixed inset-0 -z-10">
       <div class="relative h-full w-full">
-        <Image
+        <Picture
           src={spectrumBg}
           alt=""
-          class="absolute -top-[50px] w-full sm:-top-[100px] md:-top-[150px] lg:-top-[200px]"
           widths={[640, 768, 1024, 1280, 1920]}
           sizes="100vw"
-          loading="eager"
-          quality={95}
+          formats={["avif", "webp"]}
+          class="absolute -top-[50px] w-full sm:-top-[100px] md:-top-[150px] lg:-top-[200px]"
+          priority
         />
         <div
           class="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black"
