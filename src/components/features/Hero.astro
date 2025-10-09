@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+
+import sp3ctraImage from "@assets/images/sp3ctra_.png";
+import palmIcon from "@assets/images/palm.svg";
+---
+
+<section class="relative container flex h-full max-h-[800px] min-h-[600px] flex-col">
+  <div class="m-16 flex max-w-2xl flex-col gap-2 border-s ps-8">
+    <h1 class="text-foreground font-mono text-lg font-normal tracking-wide">DÉCOUVREZ SP3CTRA_</h1>
+    <p class="text-foreground text-3xl leading-tight">
+      Une nouvelle génération d'instruments pour les artistes et industriels
+    </p>
+  </div>
+  <Image
+    src={sp3ctraImage}
+    alt="Sp3ctra_ instrument"
+    class="absolute top-1/2 -z-1 mt-8 -translate-y-1/2 -rotate-z-5 opacity-0"
+    data-fade-in
+    priority
+  />
+
+  <div class="mt-auto flex justify-center pb-8">
+    <div class="flex w-fit items-center">
+      <Image src={palmIcon} alt="" class="size-10" aria-hidden="true" />
+      <p class="text-center">
+        Lauréat de l'Appel à Projets Innovants<br />Universcience 2025
+      </p>
+      <Image src={palmIcon} alt="" class="size-10 -rotate-y-180" aria-hidden="true" />
+    </div>
+  </div>
+</section>
