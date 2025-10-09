@@ -6,6 +6,11 @@
     "canonicalURL": "https://sp3ctra.io"
   },
   "buttons": {
-    "requestDemo": "Demander une démo"
+    "demo": "Demander une démo"
+  },
+  "hero": {
+    "title": "Découvrez Sp3ctra_",
+    "subtitle": "Une nouvelle génération d'instruments pour les artistes et industriels",
+    "recognition": "Lauréat de l'Appel à Projets Innovants Universcience 2025"
   }
 }

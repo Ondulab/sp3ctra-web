@@ -9,7 +9,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 import "../styles/global.css";
 import { Picture } from "astro:assets";
-import spectrumBg from "../assets/images/spectrum3.jpg";
+import spectrumBg from "../assets/images/bg-spectrum.jpg";
 ---
 
 <!doctype html>
@@ -73,7 +73,7 @@ import spectrumBg from "../assets/images/spectrum3.jpg";
     <meta http-equiv="Expires" content="259200" />
   </head>
   <body class="relative grid min-h-screen auto-rows-[auto_1fr_auto]">
-    <div class="bg-background fixed inset-0 -z-10">
+    <div class="fixed inset-0 -z-10 opacity-40">
       <div class="relative h-full w-full">
         <Picture
           src={spectrumBg}
@@ -81,23 +81,17 @@ import spectrumBg from "../assets/images/spectrum3.jpg";
           widths={[640, 768, 1024, 1280, 1920]}
           sizes="100vw"
           formats={["avif", "webp"]}
-          class="absolute -top-[50px] w-full sm:-top-[100px] md:-top-[150px] lg:-top-[200px]"
+          class="absolute w-full"
           priority
-        />
-        <div
-          class="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black"
           aria-hidden="true"
-        >
-        </div>
+        />
       </div>
     </div>
 
     <slot />
 
     <script>
-      import { initFadeInImages } from "@/scripts/animations";
-
-      // Initialize fade-in animations
+      import { initFadeInImages } from "@scripts/animations";
       initFadeInImages();
     </script>
   </body>
