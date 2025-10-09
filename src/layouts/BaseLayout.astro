@@ -14,7 +14,7 @@ import copy from "@content/copy/fr.json";
 const title = copy.seo.title;
 const description = copy.seo.description;
 const ogImage = copy.seo.ogImage;
-const canonicalURL = Astro.url.pathname;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 import "../styles/global.css";
 import { Image } from "astro:assets";
