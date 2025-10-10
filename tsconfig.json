@@ -9,6 +9,7 @@
       "@content/*": ["./src/content/*"],
       "@assets/*": ["./src/assets/*"],
       "@scripts/*": ["./src/scripts/*"],
+      "@features/*": ["./src/features/*"],
       "@/*": ["./src/*"]
     },
     "verbatimModuleSyntax": true
