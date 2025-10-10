@@ -234,7 +234,8 @@ Sp3ctra is a multimedia instrument that converts gestures and drawings into real
 ## Development Commands
 
 ```bash
-pnpm install       # Install dependencies
+pnpm astro add partytown # PREFER intall dependencies with "astro add" command
+pnpm install       # Install other dependencies
 pnpm dev           # Start dev server at localhost:4321
 pnpm build         # Build production site to ./dist/
 pnpm preview       # Preview production build locally
