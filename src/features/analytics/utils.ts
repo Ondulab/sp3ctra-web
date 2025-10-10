@@ -16,6 +16,7 @@
  * ```
  */
 
+import { track } from "@amplitude/analytics-browser";
 import { isProduction } from "./config";
 import { isAmplitudeReady } from "./init";
 import type { EventProperties } from "./types";
@@ -23,7 +24,7 @@ import type { EventProperties } from "./types";
 /**
  * Track a custom event with Amplitude
  *
- * This function safely checks if Amplitude is loaded and if we're in production
+ * This function safely checks if Amplitude is initialized and if we're in production
  * before tracking. Events are only sent in production environment.
  * Can be called from client-side code (Astro components, scripts).
  *
@@ -43,23 +44,13 @@ export function trackEvent(eventName: string, eventProperties?: EventProperties)
   }
 
   // Check if Amplitude is ready for tracking
-  if (isAmplitudeReady() && window.amplitude) {
-    window.amplitude.track(eventName, eventProperties);
+  if (isAmplitudeReady()) {
+    track(eventName, eventProperties);
     console.debug(`[Analytics] Event tracked: ${eventName}`, eventProperties);
   } else {
-    // Queue event if Amplitude hasn't loaded yet
-    console.debug(`[Analytics] Event queued (Amplitude not ready): ${eventName}`, eventProperties);
-  }
-}
-
-/**
- * TypeScript declarations for Amplitude global object
- */
-declare global {
-  interface Window {
-    amplitude?: {
-      init: (apiKey: string, config: Record<string, unknown>) => void;
-      track: (eventName: string, eventProperties?: EventProperties) => void;
-    };
+    console.debug(
+      `[Analytics] Event skipped (Amplitude not initialized): ${eventName}`,
+      eventProperties
+    );
   }
 }

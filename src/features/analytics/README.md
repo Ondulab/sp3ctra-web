@@ -8,7 +8,19 @@ Event tracking and analytics for Sp3ctra web with Amplitude.
 - **GDPR Compliant**: EU server zone for European data storage
 - **Auto-tracking**: Page views and clicks tracked automatically via autocapture
 - **Custom Events**: Track user interactions with simple API
-- **Performance**: Async loaded (~50KB gzipped), no main thread blocking
+- **NPM Package**: Uses `@amplitude/analytics-browser` to avoid ad blocker issues
+- **Performance**: Bundled with app code, no CDN blocking concerns
+
+## Why NPM Package Instead of CDN?
+
+We use the npm package (`@amplitude/analytics-browser`) instead of loading from CDN because:
+
+- **Ad Blocker Resistant**: Ad blockers often block `cdn.amplitude.com` URLs (ERR_BLOCKED_BY_CLIENT)
+- **Reliability**: No external CDN dependency or network issues
+- **Performance**: Bundled with your app code, cached as part of your bundle
+- **Type Safety**: Full TypeScript support out of the box
+
+The CDN approach (`<script src="https://cdn.amplitude.com/...">`) is blocked by privacy extensions and ad blockers, causing analytics to fail silently in production.
 
 ## Environment Filtering
 
@@ -45,13 +57,14 @@ if (isProduction()) {
 
 ## Architecture
 
-**Direct Loading (No Partytown)**
+### Direct Loading (No Partytown)
 
-Amplitude loads directly in the main thread because:
+Amplitude loads directly in the main thread using the npm package because:
 
-- Partytown incompatibility (Symbol serialization issues in Web Workers)
-- Lightweight library (~50KB gzipped)
-- Async loading minimizes performance impact
+- **Ad Blocker Compatibility**: NPM package bundled with app code isn't blocked
+- **Partytown Incompatibility**: Symbol serialization issues in Web Workers
+- **Lightweight**: ~50KB gzipped when bundled
+- **Reliability**: No CDN dependency or network issues
 
 See [Partytown trade-offs](https://partytown.qwik.dev/trade-offs) for more details.
 
@@ -238,10 +251,10 @@ trackEvent("Documentation Opened", { page: "quickstart" });
 
 ## File Structure
 
-```
+```txt
 src/features/analytics/
 ├── config.ts      # Amplitude configuration (API key, server zone, environment detection)
-├── init.ts        # Amplitude initialization script (production-only loading)
+├── init.ts        # Amplitude initialization using @amplitude/analytics-browser
 ├── types.ts       # TypeScript type definitions
 ├── utils.ts       # Event tracking utilities (trackEvent)
 ├── examples.ts    # Usage examples and testing scenarios
