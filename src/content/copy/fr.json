@@ -8,6 +8,11 @@
   "buttons": {
     "demo": "Demander une démo"
   },
+  "contact": {
+    "mail": "contact@sp3ctra.io",
+    "subject": "[sp3ctra.io] : Demande de démo",
+    "body": "Bonjour,\n\nJe souhaiterais obtenir une démonstration de 'Sp3ctra_'.\n\nMerci"
+  },
   "hero": {
     "title": "Découvrez Sp3ctra_",
     "subtitle": "Une nouvelle génération d'instruments pour les artistes et industriels",

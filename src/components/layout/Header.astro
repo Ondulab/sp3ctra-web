@@ -2,13 +2,18 @@
 import Button from "@components/base/Button.astro";
 import copy from "@content/copy/fr.json";
 import Mail from "@lucide/astro/icons/mail";
+
+const subject = encodeURIComponent(copy.contact.subject);
+const body = encodeURIComponent(copy.contact.body);
+const email = encodeURIComponent(copy.contact.mail);
+const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
 ---
 
 <header>
   <div class="container flex h-16 items-center justify-between md:h-20">
-    <a href="/" aria-label="Sp3ctra homepage" class="text-base font-semibold md:text-lg"
-      >{copy.seo.title}</a
-    >
-    <Button size="sm" icon={Mail}>{copy.buttons.demo}</Button>
+    <a href="/" aria-label="Sp3ctra_ homepage" class="text-base font-semibold md:text-lg">
+      {copy.seo.title}
+    </a>
+    <Button href={mailtoLink} size="sm" icon={Mail}>{copy.buttons.demo}</Button>
   </div>
 </header>
