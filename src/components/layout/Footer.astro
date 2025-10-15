@@ -1,127 +1,15 @@
 ---
-import Navigation from "./Navigation.astro";
-
-interface NavigationLink {
-  label: string;
-  href: string;
-  external?: boolean;
-}
-
-interface ContactInfo {
-  email: string;
-  phone?: string;
-}
-
-interface SocialLink {
-  platform: string;
-  href: string;
-  icon?: string;
-  ariaLabel: string;
-}
-
-interface LegalLinks {
-  privacyPolicy?: string;
-  termsOfService?: string;
-}
-
-interface Props {
-  navigation: NavigationLink[];
-  contact: ContactInfo;
-  social?: SocialLink[];
-  legal: LegalLinks;
-  copyright: string;
-  class?: string;
-}
-
-const { navigation, contact, social = [], legal, copyright, class: className = "" } = Astro.props;
+import copy from "@/content/copy/fr.json";
+import Button from "@components/base/Button.astro";
 ---
 
-<footer class={`bg-background border-t border-border ${className}`}>
-  <div class="container mx-auto px-4 py-12 md:px-6 md:py-16 lg:px-8">
-    <div class="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-12">
-      <!-- Navigation Links -->
-      <div>
-        <h3 class="text-foreground mb-4 text-lg font-semibold">Navigation</h3>
-        <Navigation links={navigation} />
-      </div>
-
-      <!-- Contact Information -->
-      <div>
-        <h3 class="text-foreground mb-4 text-lg font-semibold">Contact</h3>
-        <div class="space-y-2">
-          <a
-            href={`mailto:${contact.email}`}
-            class="text-foreground/80 hover:text-foreground focus:ring-primary focus:ring-offset-background inline-block rounded-sm transition-colors duration-200 focus:ring-2 focus:ring-offset-2 focus:outline-none"
-          >
-            {contact.email}
-          </a>
-          {
-            contact.phone && (
-              <p class="text-foreground/80">
-                <a
-                  href={`tel:${contact.phone}`}
-                  class="hover:text-foreground focus:ring-primary focus:ring-offset-background rounded-sm transition-colors duration-200 focus:ring-2 focus:ring-offset-2 focus:outline-none"
-                >
-                  {contact.phone}
-                </a>
-              </p>
-            )
-          }
-        </div>
-      </div>
-
-      <!-- Social Links -->
-      <div>
-        <h3 class="text-foreground mb-4 text-lg font-semibold">Follow Us</h3>
-        {
-          social.length > 0 && (
-            <ul class="flex flex-col gap-2">
-              {social.map((link) => (
-                <li>
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={link.ariaLabel}
-                    class="text-foreground/80 hover:text-foreground focus:ring-primary focus:ring-offset-background inline-block rounded-sm transition-colors duration-200 focus:ring-2 focus:ring-offset-2 focus:outline-none"
-                    style="min-width: 44px; min-height: 44px; display: inline-flex; align-items: center;"
-                  >
-                    {link.platform}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          )
-        }
-      </div>
-    </div>
-
-    <!-- Legal Links and Copyright -->
-    <div class="border-border mt-12 border-t pt-8">
-      <div class="flex flex-col items-center justify-between gap-4 md:flex-row">
-        <div class="flex flex-wrap gap-4 text-sm">
-          {
-            legal.privacyPolicy && (
-              <a
-                href={legal.privacyPolicy}
-                class="text-foreground/60 hover:text-foreground focus:ring-primary focus:ring-offset-background rounded-sm transition-colors duration-200 focus:ring-2 focus:ring-offset-2 focus:outline-none"
-              >
-                Privacy Policy
-              </a>
-            )
-          }
-          {
-            legal.termsOfService && (
-              <a
-                href={legal.termsOfService}
-                class="text-foreground/60 hover:text-foreground focus:ring-primary focus:ring-offset-background rounded-sm transition-colors duration-200 focus:ring-2 focus:ring-offset-2 focus:outline-none"
-              >
-                Terms of Service
-              </a>
-            )
-          }
-        </div>
-        <p class="text-foreground/60 text-sm">{copyright}</p>
+<footer class="border-border mt-12 border-t md:mt-24">
+  <div class="container px-4 py-8 md:px-6 md:py-14 lg:px-8">
+    <div class="flex flex-col items-center justify-between gap-8 md:flex-row">
+      <div class="text-center md:text-left">
+        <Button href={`mailto:${copy.contact.mail}`} variant="link" size="sm"
+          >{copy.contact.mail}</Button
+        >
       </div>
     </div>
   </div>

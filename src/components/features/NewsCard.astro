@@ -1,0 +1,98 @@
+---
+import { Picture } from "astro:assets";
+
+interface NewsContent {
+  badge?: string;
+  category: string;
+  title: string;
+  description: string;
+  dates: string;
+  location: string;
+  imageAlt: string;
+  link: string;
+  linkText?: string;
+}
+
+interface Props {
+  content: NewsContent;
+  image: ImageMetadata;
+}
+
+import { MapPin, Calendar, ArrowRight } from "@lucide/astro";
+import Button from "@components/base/Button.astro";
+
+const { content, image } = Astro.props;
+const { badge, category, title, description, dates, location, imageAlt, link, linkText } = content;
+---
+
+<article class="group relative container">
+  <div
+    class="bg-surface grid gap-0 overflow-hidden rounded-2xl border border-gray-800 md:grid-cols-2"
+  >
+    <div class="relative overflow-hidden">
+      {
+        badge && (
+          <div class="absolute top-4 left-4 z-10 rounded-lg bg-white px-3 py-1 font-mono text-xs tracking-wide text-black uppercase">
+            {badge}
+          </div>
+        )
+      }
+      <Picture
+        src={image}
+        alt={imageAlt}
+        widths={[640, 1024, 1280, 1920]}
+        sizes="100vw"
+        formats={["avif", "webp"]}
+        loading="eager"
+        class="h-full w-full object-cover"
+      />
+    </div>
+
+    <div class="flex flex-col justify-center gap-8 p-8 md:p-12">
+      <div
+        class="font-mono text-sm font-semibold tracking-widest text-[var(--color-primary)] uppercase"
+      >
+        {category}
+      </div>
+
+      <h3 class="font-mono text-4xl leading-tight text-[var(--color-foreground)] md:text-4xl">
+        {title}
+      </h3>
+
+      <p class="text-base leading-relaxed text-[var(--color-muted)] md:text-lg">
+        {description}
+      </p>
+
+      <div
+        class="border-primary flex flex-col gap-4 border-s ps-6 text-sm text-[var(--color-muted)]"
+      >
+        <div class="flex items-start gap-3">
+          <Calendar class="text-primary" />
+          <div>
+            <div class="text-primary font-mono tracking-wide uppercase">Dates</div>
+            <div class="mt-1">{dates}</div>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3">
+          <MapPin class="text-primary" />
+          <div>
+            <div class="text-primary font-mono tracking-wide uppercase">Lieu</div>
+            <div class="mt-1">{location}</div>
+          </div>
+        </div>
+      </div>
+
+      <Button
+        variant="link"
+        href={link}
+        icon={ArrowRight}
+        iconPos="right"
+        ariaLabel={linkText}
+        size="none"
+      >
+        {linkText}
+      </Button>
+    </div>
+  </div>
+</article>

@@ -7,25 +7,23 @@ import palmIcon from "@assets/images/palm.svg";
 ---
 
 <section
-  class="relative container flex h-fit min-h-[600px] flex-col gap-16 py-6 md:min-h-[700px] md:gap-0 md:py-0 lg:min-h-[800px]"
+  class="relative container flex h-fit flex-col gap-16 py-6 md:min-h-[700px] md:gap-0 md:py-0 lg:min-h-[800px]"
 >
-  <!-- Text Content -->
   <div class="flex max-w-xl flex-col gap-2 border-s ps-4 md:m-16 md:max-w-2xl md:ps-8">
     <h1 class="text-foreground font-mono text-base font-normal tracking-wide uppercase md:text-lg">
       {copy.hero.title}
     </h1>
-    <p class="text-foreground text-2xl leading-tight md:text-3xl">
+    <p class="text-foreground text-xl leading-tight md:text-3xl">
       {copy.hero.subtitle}
     </p>
   </div>
 
-  <!-- Product Image - Centered on mobile, absolute positioned on larger screens -->
   <div class="flex items-center justify-center md:absolute md:inset-0 md:-z-1">
     <Picture
       src={sp3ctraImage}
       alt="Sp3ctra_ instrument"
-      widths={[640, 1024, 1536]}
-      sizes="(max-width: 768px) 640px, (max-width: 1024px) 1024px, 1536px"
+      widths={[640, 1024, 1280]}
+      sizes="(max-width: 768px) 640px, (max-width: 1024px) 1024px, 1280px"
       formats={["avif", "webp"]}
       class="max-w-full opacity-0 md:-rotate-z-5"
       data-fade-in
@@ -33,14 +31,19 @@ import palmIcon from "@assets/images/palm.svg";
     />
   </div>
 
-  <!-- Recognition Badge -->
   <div class="flex justify-center pb-4 md:mt-auto md:pb-8">
     <div class="flex w-fit items-center gap-2 md:gap-3">
-      <Image src={palmIcon} alt="" class="size-8 md:size-10" aria-hidden="true" />
+      <Image src={palmIcon} alt="" class="size-8 md:size-10" aria-hidden="true" loading="eager" />
       <p class="max-w-[30ch] text-center text-sm md:text-base">
         {copy.hero.recognition}
       </p>
-      <Image src={palmIcon} alt="" class="size-8 -rotate-y-180 md:size-10" aria-hidden="true" />
+      <Image
+        src={palmIcon}
+        alt=""
+        class="size-8 -rotate-y-180 md:size-10"
+        aria-hidden="true"
+        loading="eager"
+      />
     </div>
   </div>
 </section>
