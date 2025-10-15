@@ -1,7 +1,7 @@
 {
   "seo": {
     "title": "Sp3ctra_",
-    "description": "Sp3ctra_ - système de captation linéaire haute résolution de 3465 capteurs photosensibles pour artistes, musiciens, chercheurs, industriels et pédagogues.",
+    "description": "Sp3ctra_ est une nouvelle génération d’instruments temps réel dédiés à la captation et à la synthèse spectrale. Ses 3456 capteurs photosensibles traduisent vos gestes et dessins en textures sonores et visuelles inédites, ouvrant de nouveaux territoires d’exploration artistique et scientifique.",
     "ogImage": "/images/og-image.jpg",
     "canonicalURL": "https://sp3ctra.io"
   },
@@ -15,7 +15,21 @@
   },
   "hero": {
     "title": "Découvrez Sp3ctra_",
-    "subtitle": "Une nouvelle génération d'instruments pour les artistes et industriels",
-    "recognition": "Lauréat de l'Appel à Projets Innovants Universcience 2025"
+    "subtitle": "Un système de captation innovant pour explorer de nouveaux territoires sonores et visuels.",
+    "recognition": "Lauréat de l'Appel à Projets Innovants Universcience 2024"
+  },
+  "news": {
+    "sectionTitle": "Actualités",
+    "expo2025": {
+      "badge": "Première présentation publique",
+      "category": "Exposition",
+      "title": "La musique des photons",
+      "description": "Découvrez Sp3ctra_ pour la première fois au public. Explorez comment la lumière, la couleur et le mouvement deviennent matière sonore et visuelle. Une immersion dans la synthèse spectrale.",
+      "dates": "18 octobre 2025 - 28 février 2026",
+      "location": "Cité des Sciences et de l'Industrie, Paris",
+      "imageAlt": "Exposition la musique des photons",
+      "link": "https://www.cite-sciences.fr/fr/infos-pratiques",
+      "linkText": "Informations pratiques"
+    }
   }
 }
