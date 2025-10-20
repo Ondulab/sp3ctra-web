@@ -1,5 +1,7 @@
 ---
 import { Picture } from "astro:assets";
+import { MapPin, Calendar, ArrowRight, Navigation } from "@lucide/astro"; // ✅ Ajout de Navigation
+import Button from "@components/base/Button.astro";
 
 interface NewsContent {
   badge?: string;
@@ -8,6 +10,7 @@ interface NewsContent {
   description: string;
   dates: string;
   location: string;
+  access?: string; // ✅ Nouveau champ optionnel
   imageAlt: string;
   link: string;
   linkText?: string;
@@ -18,11 +21,9 @@ interface Props {
   image: ImageMetadata;
 }
 
-import { MapPin, Calendar, ArrowRight } from "@lucide/astro";
-import Button from "@components/base/Button.astro";
-
 const { content, image } = Astro.props;
-const { badge, category, title, description, dates, location, imageAlt, link, linkText } = content;
+const { badge, category, title, description, dates, location, access, imageAlt, link, linkText } =
+  content; // ✅ Destructuring access
 ---
 
 <article class="group relative container">
@@ -81,6 +82,18 @@ const { badge, category, title, description, dates, location, imageAlt, link, li
             <div class="mt-1">{location}</div>
           </div>
         </div>
+
+        {
+          access && (
+            <div class="flex items-start gap-3">
+              <Navigation class="text-primary" />
+              <div>
+                <div class="text-primary font-mono tracking-wide uppercase">Accès</div>
+                <div class="mt-1">{access}</div>
+              </div>
+            </div>
+          )
+        }
       </div>
 
       <Button

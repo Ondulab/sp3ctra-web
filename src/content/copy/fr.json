@@ -21,15 +21,16 @@
   "news": {
     "sectionTitle": "Actualités",
     "expo2025": {
-      "badge": "Première présentation publique",
+      "badge": "Première mondiale",
       "category": "Exposition",
       "title": "La musique des photons",
-      "description": "Découvrez Sp3ctra_ pour la première fois au public. Explorez comment la lumière, la couleur et le mouvement deviennent matière sonore et visuelle. Une immersion dans la synthèse spectrale.",
+      "description": "Première présentation publique de Sp3ctra_ à la Cité des Sciences. Explorez en direct comment dessins, gestes et lumière se transforment en matière sonore et visuelle. L'instrument étant monté sur rail, vous pouvez le guider le long de dix expérimentations de synthèse spéctrale : partition graphique, enveloppes d'amplitude, spatialisation, timbre de la voix, tremolo, textures sonores, ... ",
       "dates": "18 octobre 2025 - 28 février 2026",
       "location": "Cité des Sciences et de l'Industrie, Paris",
-      "imageAlt": "Exposition la musique des photons",
+      "access": "Niveau 2, près de l'entrée de l'exposition 'Le grand récit de l'Univers'",
+      "imageAlt": "Installation Sp3ctra_ à l'exposition La musique des photons",
       "link": "https://www.cite-sciences.fr/fr/infos-pratiques",
-      "linkText": "Informations pratiques"
+      "linkText": "Préparer votre visite"
     }
   }
 }
