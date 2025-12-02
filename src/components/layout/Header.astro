@@ -2,6 +2,9 @@
 import Button from "@components/base/Button.astro";
 import copy from "@content/copy/fr.json";
 import Mail from "@lucide/astro/icons/mail";
+import { Image } from "astro:assets";
+
+import logo from "@assets/images/logo.png";
 
 const subject = encodeURIComponent(copy.contact.subject);
 const body = encodeURIComponent(copy.contact.body);
@@ -11,8 +14,8 @@ const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
 
 <header>
   <div class="container flex items-center justify-between py-8 md:py-12">
-    <a href="/" aria-label="Sp3ctra homepage" class="text-base font-semibold md:text-lg">
-      {copy.seo.title}
+    <a href="/" aria-label="Sp3ctra homepage" title="Sp3ctra homepage">
+      <Image src={logo} alt={copy.seo.title} height={24} priority />
     </a>
     <Button href={mailtoLink} size="sm" icon={Mail}>{copy.buttons.demo}</Button>
   </div>
