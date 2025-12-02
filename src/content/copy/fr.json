@@ -17,16 +17,16 @@
   "hero": {
     "title": "Découvrez Sp3ctra",
     "subtitle": "Un système de captation innovant pour explorer de nouveaux territoires sonores et visuels.",
-    "recognition": "Lauréat de l'Appel à Projets Innovants Universcience 2024"
+    "recognition": "Lauréat de l'Appel à Projets Innovants Universcience 2025"
   },
   "news": {
-    "sectionTitle": "Actualités",
+    "sectionTitle": "Venez tester l'instrument",
     "expo2025": {
-      "badge": "Première mondiale",
+      "badge": "",
       "category": "Exposition",
       "title": "La musique des photons",
       "description": "Première présentation publique de Sp3ctra à la Cité des Sciences. Explorez en direct comment dessins, gestes et lumière se transforment en matière sonore et visuelle. L'instrument étant monté sur rail, vous pouvez le guider le long de dix expérimentations de synthèse spéctrale : partition graphique, enveloppes d'amplitude, spatialisation, timbre de la voix, tremolo, textures sonores, ... ",
-      "dates": "18 octobre 2025 - 28 février 2026",
+      "dates": "18 octobre 2025 - 8 mars 2026",
       "location": "Cité des Sciences et de l'Industrie, Paris",
       "access": "Niveau 2, près de l'entrée de l'exposition 'Le grand récit de l'Univers'",
       "imageAlt": "Installation Sp3ctra à l'exposition La musique des photons",
