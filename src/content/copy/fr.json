@@ -6,7 +6,8 @@
     "canonicalURL": "https://sp3ctra.io"
   },
   "buttons": {
-    "demo": "Demander une démo"
+    "demo": "Demander une démo",
+    "quote": "Demander un devis"
   },
   "contact": {
     "mail": "contact@sp3ctra.io",
