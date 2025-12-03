@@ -5,8 +5,7 @@ const buttonStyles = tv({
   base: "inline-flex cursor-pointer items-center justify-center rounded-lg font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background",
   variants: {
     variant: {
-      primary:
-        "bg-foreground text-background border border-foreground hover:bg-foreground/90 focus:ring-primary",
+      primary: "bg-foreground text-background hover:bg-foreground/80 focus:ring-primary",
       secondary:
         "bg-surface border border-border text-foreground hover:bg-surface/80 focus:ring-primary",
       ghost: "bg-transparent text-foreground hover:bg-surface/50 focus:ring-primary",
@@ -29,7 +28,7 @@ const buttonStyles = tv({
 });
 
 const iconStyles = tv({
-  base: "flex-shrink-0",
+  base: "shrink-0",
   variants: {
     size: {
       none: "size-4 md:size-5",
