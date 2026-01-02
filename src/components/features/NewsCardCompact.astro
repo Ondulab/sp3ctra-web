@@ -1,0 +1,90 @@
+---
+/**
+ * NewsCardCompact - Compact news card without image
+ * Designed to be embedded within gallery layouts or as a standalone card
+ */
+
+import { MapPin, Calendar, Navigation, ExternalLink } from "@lucide/astro";
+
+interface NewsContent {
+  badge?: string;
+  category: string;
+  title: string;
+  description: string;
+  dates: string;
+  location: string;
+  access?: string;
+  link: string;
+  linkText?: string;
+}
+
+interface Props {
+  content: NewsContent;
+}
+
+const { content } = Astro.props;
+const { badge, category, title, description, dates, location, access, link, linkText } = content;
+---
+
+<div class="flex h-full flex-col justify-between">
+  <div>
+    {
+      badge && (
+        <span class="mb-4 inline-block rounded-full border border-purple-500/30 bg-linear-to-r from-purple-500/20 to-blue-500/20 px-3 py-1 text-xs font-medium tracking-wider text-purple-300 uppercase">
+          {badge}
+        </span>
+      )
+    }
+
+    <p class="text-accent mb-2 font-mono text-sm font-medium tracking-widest uppercase">
+      {category}
+    </p>
+    <h3 class="text-foreground mb-4 font-mono text-2xl leading-tight font-semibold md:text-3xl">
+      {title}
+    </h3>
+
+    <p class="text-foreground/80 mb-6 text-sm leading-relaxed">{description}</p>
+
+    <div class="border-accent/30 mb-6 space-y-3 border-l-2 pl-4">
+      <div class="flex items-start gap-3">
+        <Calendar class="text-accent mt-0.5 shrink-0" size={16} />
+        <div>
+          <p class="text-foreground/50 mb-0.5 font-mono text-xs tracking-wide uppercase">Dates</p>
+          <p class="text-foreground text-sm font-medium">{dates}</p>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-3">
+        <MapPin class="text-accent mt-0.5 shrink-0" size={16} />
+        <div>
+          <p class="text-foreground/50 mb-0.5 font-mono text-xs tracking-wide uppercase">Lieu</p>
+          <p class="text-foreground text-sm font-medium">{location}</p>
+        </div>
+      </div>
+
+      {
+        access && (
+          <div class="flex items-start gap-3">
+            <Navigation class="text-accent mt-0.5 shrink-0" size={16} />
+            <div>
+              <p class="text-foreground/50 mb-0.5 font-mono text-xs tracking-wide uppercase">
+                Accès
+              </p>
+              <p class="text-foreground/70 text-sm">{access}</p>
+            </div>
+          </div>
+        )
+      }
+    </div>
+  </div>
+
+  <a
+    href={link}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-purple-500 to-blue-500 px-5 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:from-purple-600 hover:to-blue-600 hover:shadow-lg hover:shadow-purple-500/25"
+  >
+    <span>{linkText || "En savoir plus"}</span>
+    <ExternalLink size={16} />
+  </a>
+</div>

@@ -1,0 +1,173 @@
+---
+/**
+ * EventGallery - Variation 4: Enhanced Masonry with Integrated Content
+ *
+ * A sophisticated masonry layout where the news content is integrated as a grid item.
+ * Important images span multiple columns and rows for visual hierarchy.
+ * Dynamic grid layout adapts to content importance.
+ */
+
+import { Picture } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import NewsCardCompact from "@components/features/NewsCardCompact.astro";
+
+interface Props {
+  content: {
+    badge?: string;
+    category: string;
+    title: string;
+    description: string;
+    dates: string;
+    location: string;
+    access: string;
+    imageAlt: string;
+    link: string;
+    linkText: string;
+  };
+}
+
+const { content } = Astro.props;
+
+// Import all images
+import img1 from "@assets/images/cite-des-sciences/sp3ctra-2025-cite-des-sciences-ateliers-1.jpg";
+import img2 from "@assets/images/cite-des-sciences/sp3ctra-2025-cite-des-sciences-ateliers-2.jpg";
+import img3 from "@assets/images/cite-des-sciences/sp3ctra-2025-cite-des-sciences-ateliers-3.jpg";
+import img4 from "@assets/images/cite-des-sciences/sp3ctra-2025-live-nuit-des-musees-1.jpg";
+import img5 from "@assets/images/cite-des-sciences/sp3ctra-2025-live-nuit-des-musees-2.jpg";
+import img6 from "@assets/images/cite-des-sciences/sp3ctra-2025-live-nuit-des-musees-3.jpg";
+import img7 from "@assets/images/cite-des-sciences/sp3ctra-2025-musique-des-photons-exhibition-1.jpg";
+import img8 from "@assets/images/cite-des-sciences/sp3ctra-2025-musique-des-photons-exhibition-2.jpg";
+import img9 from "@assets/images/cite-des-sciences/sp3ctra-20251129-conference.jpg";
+
+// Define image sizes - featured images span more space
+const images = [
+  // Featured large images (2x2 on desktop)
+  {
+    src: img7,
+    alt: "Exposition La musique des photons - Installation Sp3ctra",
+    category: "Exhibition",
+    size: "large",
+  },
+  {
+    src: img8,
+    alt: "Exposition La musique des photons - Détails de l'instrument",
+    category: "Exhibition",
+    size: "large",
+  },
+
+  // Featured wide images (2x1 on desktop)
+  { src: img9, alt: "Conférence de présentation Sp3ctra", category: "Conférence", size: "wide" },
+  {
+    src: img5,
+    alt: "Performance live Sp3ctra - Captation en temps réel",
+    category: "Performance",
+    size: "wide",
+  },
+
+  // Regular images (1x1)
+  {
+    src: img1,
+    alt: "Atelier Sp3ctra à la Cité des Sciences - Participants explorant l'instrument",
+    category: "Ateliers",
+    size: "regular",
+  },
+  {
+    src: img2,
+    alt: "Atelier Sp3ctra - Vue rapprochée de l'interaction avec l'instrument",
+    category: "Ateliers",
+    size: "regular",
+  },
+  {
+    src: img3,
+    alt: "Atelier Sp3ctra - Groupe d'expérimentation sonore",
+    category: "Ateliers",
+    size: "regular",
+  },
+  {
+    src: img4,
+    alt: "Performance live Sp3ctra - Nuit des Musées",
+    category: "Performance",
+    size: "regular",
+  },
+  {
+    src: img6,
+    alt: "Performance live Sp3ctra - Public et artiste",
+    category: "Performance",
+    size: "regular",
+  },
+];
+---
+
+<article class="relative overflow-hidden p-4 md:p-6 lg:p-8">
+  <!-- Masonry Grid Layout -->
+  <div class="grid auto-rows-[200px] grid-cols-2 gap-3 md:grid-cols-4 md:gap-4 lg:grid-cols-6">
+    <!-- News Content Card - Large, top-left, spans 2x2 on mobile, 2x3 on desktop -->
+    <div
+      class="from-background/95 to-background/80 border-border/30 col-span-2 row-span-2 rounded-xl border bg-linear-to-br p-6 backdrop-blur-md md:row-span-3 md:p-8"
+    >
+      <NewsCardCompact content={content} />
+    </div>
+
+    <!-- Gallery Images with Variable Sizes -->
+    {
+      images.map((image) => {
+        // Large images: 2x2 grid cells on desktop, 2x2 on mobile
+        const isLarge = image.size === "large";
+        // Wide images: 2x1 grid cells on desktop, 2x1 on mobile
+        const isWide = image.size === "wide";
+
+        const gridClasses = isLarge
+          ? "col-span-2 row-span-2"
+          : isWide
+            ? "col-span-2 row-span-1"
+            : "col-span-1 row-span-1";
+
+        const aspectClasses = isLarge ? "aspect-square" : isWide ? "aspect-[2/1]" : "aspect-square";
+
+        return (
+          <div class={`${gridClasses} group relative overflow-hidden rounded-lg`}>
+            <Picture
+              src={image.src}
+              alt={image.alt}
+              formats={["avif", "webp"]}
+              widths={isLarge ? [600, 800, 1000] : isWide ? [600, 800, 1000] : [300, 400, 600]}
+              sizes={
+                isLarge
+                  ? "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  : isWide
+                    ? "(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    : "(max-width: 768px) 50vw, 25vw"
+              }
+              loading="lazy"
+              class={`h-full w-full object-cover transition-transform duration-300 group-hover:scale-105 ${aspectClasses}`}
+            />
+            <div class="absolute inset-0 flex items-end bg-linear-to-t from-black/70 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <div class="p-3">
+                <p class="text-xs font-medium tracking-wide text-white uppercase">
+                  {image.category}
+                </p>
+              </div>
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+</article>
+
+<style>
+  /* Ensure grid auto-placement works well */
+  @media (max-width: 767px) {
+    /* On mobile, ensure content card is always first and prominent */
+    article > div {
+      grid-auto-flow: dense;
+    }
+  }
+
+  @media (min-width: 768px) {
+    /* On larger screens, use dense packing for better visual flow */
+    article > div {
+      grid-auto-flow: dense;
+    }
+  }
+</style>

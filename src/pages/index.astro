@@ -2,11 +2,15 @@
 import Header from "@components/layout/Header.astro";
 import Hero from "@components/features/Hero.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import NewsCard from "@components/features/NewsCard.astro";
-import ImgExpo from "@assets/images/sp3ctra_expo_la_musique_des_photons6.jpg";
 import SectionHeader from "@components/base/SectionHeader.astro";
 import copy from "@content/copy/fr.json";
 import Footer from "@components/layout/Footer.astro";
+
+// Import gallery variations - uncomment the one you want to use
+import EventGallery from "@components/features/EventGallery_MasonryV2.astro";
+// import EventGallery from "@components/features/EventGallery_Featured.astro";
+// import EventGallery from "@components/features/EventGallery_Masonry.astro";
+// import EventGallery from "@components/features/EventGallery_Grid.astro";
 ---
 
 <BaseLayout>
@@ -14,7 +18,7 @@ import Footer from "@components/layout/Footer.astro";
   <main>
     <Hero />
     <SectionHeader title={copy.news.sectionTitle} />
-    <NewsCard content={copy.news.expo2025} image={ImgExpo} />
+    <EventGallery content={copy.news.expo2025} />
   </main>
   <Footer />
 </BaseLayout>

@@ -10,7 +10,7 @@ interface NewsContent {
   description: string;
   dates: string;
   location: string;
-  access?: string; // ✅ Nouveau champ optionnel
+  access?: string;
   imageAlt: string;
   link: string;
   linkText?: string;
@@ -23,42 +23,23 @@ interface Props {
 
 const { content, image } = Astro.props;
 const { badge, category, title, description, dates, location, access, imageAlt, link, linkText } =
-  content; // ✅ Destructuring access
+  content;
 ---
 
 <article class="group relative container">
   <div
     class="bg-surface grid gap-0 overflow-hidden rounded-2xl border border-gray-800 md:grid-cols-2"
   >
-    <div class="relative overflow-hidden">
-      {
-        badge && (
-          <div class="absolute top-4 left-4 z-10 rounded-lg bg-white px-3 py-1 font-mono text-xs tracking-wide text-black uppercase">
-            {badge}
-          </div>
-        )
-      }
-      <Picture
-        src={image}
-        alt={imageAlt}
-        widths={[640, 1024, 1280, 1920]}
-        sizes="100vw"
-        formats={["avif", "webp"]}
-        loading="eager"
-        class="h-full w-full object-cover"
-      />
-    </div>
-
     <div class="flex flex-col justify-center gap-8 p-8 md:p-12">
-      <div class="text-primary font-mono text-sm font-semibold tracking-widest uppercase">
+      <div class="text-primary font-mono text-xs font-semibold tracking-widest uppercase">
         {category}
       </div>
 
-      <h3 class="text-foreground text-4xl leading-tight font-semibold md:text-4xl">
+      <h3 class="text-foreground text-2xl leading-tight font-semibold">
         {title}
       </h3>
 
-      <p class="text-muted text-base leading-relaxed md:text-lg">
+      <p class="text-muted text-base leading-relaxed">
         {description}
       </p>
 
