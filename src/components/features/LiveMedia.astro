@@ -1,0 +1,26 @@
+---
+import copy from "@content/copy/fr.json";
+import FeatureSection from "@components/base/FeatureSection.astro";
+import MediaCard from "@components/base/MediaCard.astro";
+import liveConcert from "@assets/images/live-concert.jpg";
+import liveVisual from "@assets/images/live-visual.jpg";
+
+const { title, description, videos } = copy.liveMedia;
+
+// Map video thumbnails to imported images
+const videoImages = [liveConcert, liveVisual];
+---
+
+<FeatureSection title={title} description={description}>
+  {
+    videos.map((video, index) => (
+      <MediaCard
+        src={videoImages[index]}
+        alt={video.title}
+        caption={video.title}
+        href={video.videoId ? `https://www.youtube.com/watch?v=${video.videoId}` : undefined}
+        linkType="youtube"
+      />
+    ))
+  }
+</FeatureSection>

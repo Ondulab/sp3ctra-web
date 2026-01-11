@@ -1,0 +1,53 @@
+---
+import { Picture } from "astro:assets";
+import copy from "@content/copy/fr.json";
+import deviceAngleView from "@assets/images/device.jpg";
+
+const { title, specs, tags, imageAlt } = copy.technicalSpecs;
+---
+
+<section class="container py-16 md:py-24">
+  <div class="flex flex-col gap-12 lg:flex-row lg:gap-16">
+    <!-- Device image -->
+    <div class="flex-1">
+      <Picture
+        src={deviceAngleView}
+        alt={imageAlt}
+        widths={[480, 640, 800]}
+        formats={["avif", "webp"]}
+        loading="lazy"
+        class="h-auto w-full"
+      />
+    </div>
+
+    <!-- Technical specifications -->
+    <div class="flex-1 lg:max-w-lg">
+      <div class="border-muted border-t pt-6">
+        <h2 class="text-foreground font-mono text-xl font-extralight leading-tight">
+          {title}
+        </h2>
+      </div>
+
+      <dl class="mt-8 flex flex-col gap-4">
+        {
+          specs.map((spec) => (
+            <div class="border-border flex justify-between gap-4 border-b pb-3">
+              <dt class="text-muted text-sm">{spec.label}</dt>
+              <dd class="text-foreground text-sm">{spec.value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        {
+          tags.map((tag) => (
+            <span class="bg-surface text-foreground rounded-sm px-4 py-2 text-xs font-medium">
+              {tag}
+            </span>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

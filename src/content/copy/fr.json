@@ -7,7 +7,8 @@
   },
   "buttons": {
     "demo": "Demander une démo",
-    "quote": "Demander un devis"
+    "quote": "Demander un devis",
+    "more": "En savoir plus"
   },
   "contact": {
     "mail": "contact@sp3ctra.io",
@@ -15,23 +16,125 @@
     "body": "Bonjour,\n\nJe souhaiterais obtenir une démonstration de 'Sp3ctra'.\n\nMerci"
   },
   "hero": {
-    "title": "Découvrez Sp3ctra",
+    "title": "Dessiner les sons.\nÉcouter les images",
     "subtitle": "Un système de captation innovant pour explorer de nouveaux territoires sonores et visuels.",
     "recognition": "Lauréat de l'Appel à Projets Innovants Universcience 2025"
   },
+  "bigText": {
+    "brand": "Sp3ctra",
+    "text": "est une nouvelle génération d'instruments capable de",
+    "highlight": "traduire lumière et mouvement en flux continu",
+    "ending": "Une technologie sous licence libre aux usages artistiques, scientifiques et pédagogiques."
+  },
   "news": {
-    "sectionTitle": "Venez tester l'instrument",
+    "sectionTitle": "Actualités",
     "expo2025": {
       "badge": "",
       "category": "Exposition",
       "title": "La musique des photons",
-      "description": "Première présentation publique de Sp3ctra à la Cité des Sciences. Explorez en direct comment dessins, gestes et lumière se transforment en matière sonore et visuelle. L'instrument étant monté sur rail, vous pouvez le guider le long de dix expérimentations de synthèse spéctrale : partition graphique, enveloppes d'amplitude, spatialisation, timbre de la voix, tremolo, textures sonores, ... ",
+      "description": "Venez tester l'instrument à la Cité des Sciences comment dessins, gestes et lumière se transforment en matière sonore et visuelle.",
       "dates": "18 octobre 2025 - 8 mars 2026",
-      "location": "Cité des Sciences et de l'Industrie, Paris",
+      "location": "Cité des Sciences et de l'Industrie (niveau 2), Paris",
       "access": "Niveau 2, près de l'entrée de l'exposition 'Le grand récit de l'Univers'",
       "imageAlt": "Installation Sp3ctra à l'exposition La musique des photons",
       "link": "https://www.cite-sciences.fr/fr/infos-pratiques",
       "linkText": "Préparer votre visite"
     }
+  },
+  "technicalSpecs": {
+    "title": "SPÉCIFICATIONS TECHNIQUES",
+    "imageAlt": "Sp3ctra - Vue du dispositif de captation linéaire",
+    "specs": [
+      {
+        "label": "Capteurs",
+        "value": "3465 RGB 460 DPI"
+      },
+      {
+        "label": "Oscillateurs",
+        "value": "3465 numériques"
+      },
+      {
+        "label": "Flux",
+        "value": "UDP 1 KHz stable"
+      },
+      {
+        "label": "Connexions",
+        "value": "Ethernet, USB, API"
+      },
+      {
+        "label": "Bibliothèques",
+        "value": "Python, C/C++, Max/MSP"
+      }
+    ],
+    "tags": ["Open Source", "Micro-tonale", "Temps réel"]
+  },
+  "liveMedia": {
+    "title": "LIVE AUDIO/VIDEO",
+    "description": "Découvrez Sp3ctra en action à travers des sessions live et des expérimentations visuelles. L'instrument traduit en temps réel les gestes et la lumière en textures sonores et visuelles, offrant une expérience immersive unique.",
+    "videos": [
+      {
+        "title": "Session prototype avec modulations eurorack",
+        "thumbnail": "/images/live-concert.jpg",
+        "videoId": ""
+      },
+      {
+        "title": "Exploration visuelle spectrale",
+        "thumbnail": "/images/live-visual.jpg",
+        "videoId": ""
+      }
+    ]
+  },
+  "research": {
+    "title": "RECHERCHES ET PÉDAGOGIE",
+    "description": "Sp3ctra ouvre de nouveaux champs d'exploration pour la recherche scientifique et l'enseignement. Son SDK open-source permet d'expérimenter avec la captation linéaire haute résolution et la synthèse spectrale en temps réel.",
+    "items": [
+      {
+        "title": "Documentation technique et SDK",
+        "image": "/images/device.jpg",
+        "link": "https://github.com/sp3ctra",
+        "linkType": "external"
+      },
+      {
+        "title": "Applications pédagogiques",
+        "image": "/images/sp3ctra_expo_la_musique_des_photons6.jpg",
+        "link": "/education",
+        "linkType": "internal"
+      }
+    ]
+  },
+  "about": {
+    "title": "À propos",
+    "subtitle": "Ondulab",
+    "paragraphs": [
+      "Ondulab est née de quinze années d'expérimentations au sein de Réso-nance Numérique et du LFO, premier fablab de Marseille. Cette trajectoire a forgé une culture du prototypage, de la collaboration et de l'ouverture, avec un objectif constant : rendre les instruments numériques réellement accessibles.",
+      "Avec le temps, une évidence s'impose : l'accessibilité passe par l'ergonomie, la simplicité et l'autonomie d'usage. Un instrument doit pouvoir être utilisé sans prérequis techniques.",
+      "La rencontre avec Devisubox marque un tournant : dépasser le prototype pour concevoir un objet fiable et industrialisable. Sp3ctra incarne cette bascule : un instrument abouti, pensé pour un usage réel, permettant à des non-experts de s'approprier des outils numériques complexes."
+    ]
+  },
+  "faq": {
+    "title": "FAQ",
+    "subtitle": "Everything you need to know",
+    "questions": [
+      {
+        "question": "Quels sont les domaines d'application de Sp3ctra ?",
+        "answer": "Sp3ctra s'adresse aux musiciens, artistes visuels, enseignants, chercheurs et ingénieurs souhaitant explorer la captation linéaire et la synthèse spectrale. L'instrument peut être utilisé pour la création sonore, les installations interactives, l'enseignement de la physique du son, ou encore le développement d'interfaces innovantes."
+      },
+      {
+        "question": "Ai-je besoin de compétences techniques pour utiliser Sp3ctra ?",
+        "answer": "Non. Sp3ctra a été conçu pour être accessible sans prérequis techniques. L'interface permet une prise en main immédiate par le geste et l'exploration tactile. Pour les utilisations avancées (programmation, intégration), un SDK open-source et une documentation complète sont disponibles."
+      },
+      {
+        "question": "Puis-je développer mes propres applications avec Sp3ctra ?",
+        "answer": "Oui. Sp3ctra est fourni avec un SDK open-source incluant des bibliothèques Python, C/C++ et Max/MSP. Vous pouvez accéder aux données brutes des capteurs via Ethernet ou USB pour créer vos propres algorithmes de traitement."
+      },
+      {
+        "question": "Quelle est la latence du système ?",
+        "answer": "Le flux de données est stable à 1 KHz avec une latence inférieure à 5 ms, garantissant une expérience en temps réel adaptée aux performances live et aux interactions gestuelles."
+      },
+      {
+        "question": "Comment puis-je essayer Sp3ctra ?",
+        "answer": "Vous pouvez tester l'instrument à la Cité des Sciences et de l'Industrie (Paris) jusqu'en mars 2026 dans le cadre de l'exposition 'La musique des photons'. Pour une démonstration personnalisée ou un devis, contactez-nous via le formulaire."
+      }
+    ]
   }
 }

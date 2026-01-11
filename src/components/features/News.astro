@@ -1,0 +1,14 @@
+---
+import { Picture } from "astro:assets";
+import copy from "@content/copy/fr.json";
+import SectionHeader from "@components/base/SectionHeader.astro";
+import NewsCard from "@components/features/NewsCard.astro";
+import expoCiteDesSciences from "@assets/images/cite-des-sciences/20251019_122001.jpg";
+
+const { sectionTitle, expo2025 } = copy.news;
+---
+
+<section class="container flex flex-col gap-12 py-16 md:py-24">
+  <SectionHeader title={sectionTitle} />
+  <NewsCard content={expo2025} image={expoCiteDesSciences} />
+</section>

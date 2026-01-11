@@ -1,24 +1,29 @@
 ---
 import Header from "@components/layout/Header.astro";
 import Hero from "@components/features/Hero.astro";
+import BigText from "@components/features/BigText.astro";
+import TechnicalSpecs from "@components/features/TechnicalSpecs.astro";
+import LiveMedia from "@components/features/LiveMedia.astro";
+import News from "@components/features/News.astro";
+import Research from "@components/features/Research.astro";
+import About from "@components/features/About.astro";
+import FAQ from "@components/features/FAQ.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import SectionHeader from "@components/base/SectionHeader.astro";
 import copy from "@content/copy/fr.json";
 import Footer from "@components/layout/Footer.astro";
-
-// Import gallery variations - uncomment the one you want to use
-import EventGallery from "@components/features/EventGallery_MasonryV2.astro";
-// import EventGallery from "@components/features/EventGallery_Featured.astro";
-// import EventGallery from "@components/features/EventGallery_Masonry.astro";
-// import EventGallery from "@components/features/EventGallery_Grid.astro";
 ---
 
 <BaseLayout>
   <Header />
   <main>
     <Hero />
-    <SectionHeader title={copy.news.sectionTitle} />
-    <EventGallery content={copy.news.expo2025} />
+    <BigText />
+    <TechnicalSpecs />
+    <LiveMedia />
+    <Research />
+    <News />
+    <About />
+    <FAQ />
   </main>
   <Footer />
 </BaseLayout>

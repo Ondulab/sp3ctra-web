@@ -1,0 +1,20 @@
+---
+import copy from "@content/copy/fr.json";
+
+const { brand, text, highlight, ending } = copy.bigText;
+---
+
+<section class="mx-auto max-w-5xl py-16 md:py-24 lg:py-32">
+  <p
+    class="text-foreground/95 text-center text-2xl leading-relaxed font-normal tracking-wide md:text-3xl lg:text-4xl"
+  >
+    <span class="font-semibold">{brand}</span>
+    {text}
+    <span
+      class="bg-linear-to-r from-blue-500 to-purple-500 bg-clip-text font-semibold text-transparent"
+    >
+      {highlight}
+    </span>.
+    {ending}
+  </p>
+</section>

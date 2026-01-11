@@ -39,6 +39,10 @@ This file provides guidance to Claude Code (claude.ai/code), Gemini Cli, Github 
    - [ ] Follow component structure pattern (see Technical Implementation Patterns)
    - [ ] Use semantic HTML elements
    - [ ] Apply design tokens (no hardcoded values)
+   - [ ] **CRITICAL**: Use only Tailwind design tokens from `src/styles/global.css` - NO arbitrary values like `[#bababa]`, `[605px]`, etc.
+   - [ ] **CRITICAL**: All text must come from `src/content/copy/` - NO hardcoded strings in components
+   - [ ] Simplify HTML structure - remove unnecessary wrapper divs
+   - [ ] Use semantic Tailwind classes (e.g., `text-muted`, `border-border`, `bg-surface`) instead of arbitrary hex values
 
 4. **Validation Phase** (see Quality Gates below)
    - [ ] Test keyboard navigation
@@ -122,12 +126,15 @@ This file provides guidance to Claude Code (claude.ai/code), Gemini Cli, Github 
 
 ### Brand & Design Checklist
 
-- [ ] **Colors**: Using CSS variables from design tokens
+- [ ] **Colors**: Using CSS variables from design tokens (text-foreground, bg-surface, border-muted, etc.)
+- [ ] **No Arbitrary Values**: All Tailwind classes use design tokens - NO arbitrary values like `[#bababa]` or `[605px]`
+- [ ] **Text Content**: All copy from `src/content/copy/` - no hardcoded strings
 - [ ] **Spacing**: Using spacing scale (4, 8, 12, 16, 24, 32, 48, 64px)
 - [ ] **Typography**: Correct font families (Inter body, JetBrains Mono headings)
-- [ ] **Border Radius**: Consistent values (8-12px)
+- [ ] **Border Radius**: Consistent values (8-12px via design tokens)
 - [ ] **Animations**: Only simple transitions (150-300ms)
 - [ ] **Vocabulary**: Following approved messaging (no "scanner", "synthesizer")
+- [ ] **Simplified HTML**: Minimal wrapper divs, semantic structure
 
 ## 🌳 Decision Trees
 
@@ -190,6 +197,8 @@ Does it need client-side interactivity?
 - ❌ **Never** create custom animations beyond simple transitions (time sink, maintenance burden)
 - ❌ **Never** use multiple component libraries (stick to base components + Tailwind)
 - ❌ **Never** hardcode colors, spacing, or typography (use design tokens)
+- ❌ **Never** use arbitrary values in Tailwind classes (e.g., `text-[#bababa]`, `w-[605px]`) - use design tokens only
+- ❌ **Never** hardcode text strings in components - all copy must be in `src/content/copy/`
 - ❌ **Never** use `any` type in TypeScript (use proper types or `unknown`)
 - ❌ **Never** commit secrets or API keys (.env, credentials.json)
 - ❌ **Never** use terms "scanner" or "synthesizer" in product copy
@@ -535,7 +544,7 @@ const { variant, size, href } = Astro.props;
 ```html
 <!-- Always include focus states -->
 <button
-  class="focus:ring-primary focus:ring-offset-background focus:ring-2 focus:ring-offset-2 focus:outline-none"
+  class="focus:ring-primary focus:ring-offset-background focus:outline-none focus:ring-2 focus:ring-offset-2"
 >
   Action
 </button>
@@ -547,6 +556,88 @@ const { variant, size, href } = Astro.props;
   </header>
   <p>Content</p>
 </article>
+```
+
+### Code Quality Examples: What to Avoid vs What to Use
+
+**❌ WRONG - Arbitrary values and hardcoded text:**
+
+```astro
+<section class="relative w-full bg-black py-16 md:py-24">
+  <div class="container mx-auto">
+    <div class="border-t border-[#bababa] pt-6">
+      <h2 class="font-['JetBrains_Mono'] text-xl text-white">SPÉCIFICATIONS TECHNIQUES</h2>
+    </div>
+    <div class="border-b border-[#333333] pb-3">
+      <dt class="text-[#bababa]">Capteurs</dt>
+      <dd class="text-white">3465 RGB 460 DPI</dd>
+    </div>
+    <span class="bg-[#1a1a1a] px-4 py-2 text-white"> Open Source </span>
+  </div>
+</section>
+```
+
+**✅ CORRECT - Design tokens and content from copy files:**
+
+```astro
+---
+import copy from "@content/copy/fr.json";
+const { title, specs, tags } = copy.technicalSpecs;
+---
+
+<section class="container py-16 md:py-24">
+  <div class="border-muted border-t pt-6">
+    <h2 class="text-foreground font-mono text-xl">
+      {title}
+    </h2>
+  </div>
+  <dl class="flex flex-col gap-4">
+    {
+      specs.map((spec) => (
+        <div class="border-border border-b pb-3">
+          <dt class="text-muted">{spec.label}</dt>
+          <dd class="text-foreground">{spec.value}</dd>
+        </div>
+      ))
+    }
+  </dl>
+  <div class="flex flex-wrap gap-3">
+    {tags.map((tag) => <span class="bg-surface text-foreground px-4 py-2">{tag}</span>)}
+  </div>
+</section>
+```
+
+**Key improvements:**
+
+- ❌ `border-[#bababa]` → ✅ `border-muted` (semantic token)
+- ❌ `bg-[#1a1a1a]` → ✅ `bg-surface` (semantic token)
+- ❌ `text-white` → ✅ `text-foreground` (semantic token)
+- ❌ `font-['JetBrains_Mono']` → ✅ `font-mono` (font family token)
+- ❌ Hardcoded "SPÉCIFICATIONS TECHNIQUES" → ✅ `{title}` from copy file
+- ❌ `relative w-full` unnecessary wrappers → ✅ Simplified structure
+- ❌ `mx-auto` when using container → ✅ `container` utility includes margins
+
+**Available Design Tokens:**
+
+```css
+/* Colors - Use semantic class names */
+text-foreground     /* White text */
+text-muted          /* Dimmed white text */
+bg-background       /* Pure black */
+bg-surface          /* Dark gray surface */
+border-border       /* Subtle white border */
+border-muted        /* More visible border */
+
+/* Typography */
+font-sans           /* Inter */
+font-mono           /* JetBrains Mono */
+
+/* Border radius */
+rounded-sm          /* 8px */
+rounded-md          /* 12px */
+
+/* Spacing already built into Tailwind */
+gap-4, gap-8, py-16, px-4, etc.
 ```
 
 ## Landing Page Strategy

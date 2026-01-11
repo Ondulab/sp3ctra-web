@@ -1,49 +1,77 @@
 ---
 import { Picture, Image } from "astro:assets";
-import copy from "@content/copy/fr.json";
 
-import sp3ctraImage from "@assets/images/sp3ctra.png";
+import copy from "@content/copy/fr.json";
+import heroImage from "@assets/images/main-spectra3.jpg";
 import palmIcon from "@assets/images/palm.svg";
+import Button from "@components/base/Button.astro";
+import ArrowRight from "@lucide/astro/icons/arrow-right";
+
+const emailHref = `mailto:${copy.contact.mail}?subject=${encodeURIComponent(copy.contact.subject)}`;
 ---
 
-<section
-  class="relative container flex h-fit flex-col gap-16 py-6 md:min-h-[700px] md:gap-0 md:py-0 lg:min-h-[800px]"
->
-  <div class="flex max-w-xl flex-col gap-2 border-s ps-4 md:m-16 md:max-w-2xl md:ps-8">
-    <h1 class="text-foreground font-mono text-base font-normal tracking-wide uppercase md:text-lg">
-      {copy.hero.title}
-    </h1>
-    <p class="text-foreground text-xl leading-tight md:text-3xl">
-      {copy.hero.subtitle}
-    </p>
+<section class="container mx-auto flex min-h-screen flex-col gap-12 py-16 md:gap-16">
+  <!-- Content block -->
+  <div class="flex flex-col gap-8">
+    <!-- Title and subtitle -->
+    <div class="border-foreground flex flex-col gap-6 border-l-2 pl-6">
+      <h1
+        class="text-foreground text-3xl leading-tight font-normal whitespace-pre-line md:text-5xl"
+      >
+        {copy.hero.title}
+      </h1>
+
+      <p class="text-muted max-w-prose text-base">
+        {copy.hero.subtitle}
+      </p>
+    </div>
+
+    <!-- CTA buttons -->
+    <div class="flex flex-wrap gap-3">
+      <Button href={emailHref} variant="primary" size="lg" icon={ArrowRight} iconPos="right">
+        {copy.buttons.quote}
+      </Button>
+
+      <Button href="#about" variant="secondary" size="lg">
+        {copy.buttons.more}
+      </Button>
+    </div>
   </div>
 
-  <div class="flex items-center justify-center md:absolute md:inset-0 md:-z-1">
+  <!-- Hero image -->
+  <div class="w-full overflow-hidden">
     <Picture
-      src={sp3ctraImage}
-      alt="Sp3ctra instrument"
-      widths={[640, 1024, 1280]}
-      sizes="(max-width: 768px) 640px, (max-width: 1024px) 1024px, 1280px"
+      src={heroImage}
+      alt="Sp3ctra - Dispositif de captation linéaire innovant pour la création sonore et visuelle en temps réel"
+      widths={[640, 1024, 1280, 1920]}
       formats={["avif", "webp"]}
-      class="max-w-full opacity-0 md:-rotate-z-5"
+      loading="eager"
+      fetchpriority="high"
       data-fade-in
-      priority
+      class="w-full opacity-0 transition-opacity duration-300"
     />
   </div>
 
-  <div class="flex justify-center pb-4 md:mt-auto md:pb-8">
-    <div class="flex w-fit items-center gap-2 md:gap-3">
-      <Image src={palmIcon} alt="" class="size-8 md:size-10" aria-hidden="true" loading="eager" />
-      <p class="max-w-[30ch] text-center text-sm md:text-base">
-        {copy.hero.recognition}
-      </p>
-      <Image
-        src={palmIcon}
-        alt=""
-        class="size-8 -rotate-y-180 md:size-10"
-        aria-hidden="true"
-        loading="eager"
-      />
-    </div>
+  <!-- Recognition badge -->
+  <div class="flex items-center justify-center gap-3">
+    <Image src={palmIcon} alt="" class="size-8 shrink-0" aria-hidden="true" loading="eager" />
+
+    <p class="text-foreground text-center text-sm leading-normal">
+      {copy.hero.recognition}
+    </p>
+
+    <Image
+      src={palmIcon}
+      alt=""
+      class="size-8 shrink-0 -scale-x-100"
+      aria-hidden="true"
+      loading="eager"
+    />
   </div>
 </section>
+
+<script>
+  // Initialize fade-in animation using existing animations.ts
+  import { initFadeInImages } from "@/scripts/animations";
+  initFadeInImages();
+</script>

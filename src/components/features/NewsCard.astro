@@ -1,6 +1,6 @@
 ---
 import { Picture } from "astro:assets";
-import { MapPin, Calendar, ArrowRight, Navigation } from "@lucide/astro"; // ✅ Ajout de Navigation
+import { MapPin, Calendar, ArrowRight } from "@lucide/astro";
 import Button from "@components/base/Button.astro";
 
 interface NewsContent {
@@ -26,10 +26,19 @@ const { badge, category, title, description, dates, location, access, imageAlt, 
   content;
 ---
 
-<article class="group relative container">
-  <div
-    class="bg-surface grid gap-0 overflow-hidden rounded-2xl border border-gray-800 md:grid-cols-2"
-  >
+<article class="relative">
+  <div class="bg-surface grid gap-0 overflow-hidden rounded border border-gray-600 md:grid-cols-2">
+    <div class="overflow-hidden">
+      <Picture
+        src={image}
+        alt={imageAlt}
+        widths={[400, 600, 800]}
+        formats={["avif", "webp"]}
+        loading="lazy"
+        class="h-full w-full object-cover"
+      />
+    </div>
+
     <div class="flex flex-col justify-center gap-8 p-8 md:p-12">
       <div class="text-primary font-mono text-xs font-semibold tracking-widest uppercase">
         {category}
@@ -43,34 +52,16 @@ const { badge, category, title, description, dates, location, access, imageAlt, 
         {description}
       </p>
 
-      <div class="border-primary text-muted flex flex-col gap-4 border-s ps-6 text-sm">
+      <div class="border-primary text-muted flex flex-col gap-4 text-sm">
         <div class="flex items-start gap-3">
-          <Calendar class="text-primary" />
-          <div>
-            <div class="text-primary font-mono tracking-wide uppercase">Dates</div>
-            <div class="mt-1">{dates}</div>
-          </div>
+          <Calendar />
+          <div class="mt-1">{dates}</div>
         </div>
 
         <div class="flex items-start gap-3">
-          <MapPin class="text-primary" />
-          <div>
-            <div class="text-primary font-mono tracking-wide uppercase">Lieu</div>
-            <div class="mt-1">{location}</div>
-          </div>
+          <MapPin />
+          <div class="mt-1">{location}</div>
         </div>
-
-        {
-          access && (
-            <div class="flex items-start gap-3">
-              <Navigation class="text-primary" />
-              <div>
-                <div class="text-primary font-mono tracking-wide uppercase">Accès</div>
-                <div class="mt-1">{access}</div>
-              </div>
-            </div>
-          )
-        }
       </div>
 
       <Button
