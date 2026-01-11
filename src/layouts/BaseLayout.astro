@@ -2,10 +2,11 @@
 // SEO
 import copy from "@content/copy/fr.json";
 
-import BackgroundSpectrum from "@components/base/BackgroundSpectrum.astro";
+import BackgroundSpectrum from "@components/layout/BackgroundSpectrum.astro";
 
 const title = copy.seo.title;
 const description = copy.seo.description;
+const structuredDescription = copy.seo.structuredDescription;
 const ogImage = copy.seo.ogImage;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
@@ -40,34 +41,36 @@ import "../styles/global.css";
 
     <link rel="canonical" href={canonicalURL} />
 
-    <script type="application/ld+json" is:inline>
-      {
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify({
         "@context": "https://schema.org",
         "@graph": [
           {
             "@type": "Product",
-            "name": "Sp3ctra",
-            "description": "Sp3ctra est un dispositif de captation et de synthèse spectrale en temps réel. Ses 3456 capteurs photosensibles transforment vos gestes et dessins en textures sonores et visuelles inédites, ouvrant de nouveaux territoires d’exploration artistique et scientifique.",
-            "image": "https://sp3ctra.io/images/og-image.jpg",
-            "brand": {
+            name: "Sp3ctra",
+            description: structuredDescription,
+            image: "https://sp3ctra.io/images/og-image.jpg",
+            brand: {
               "@type": "Brand",
-              "name": "Sp3ctra"
-            }
+              name: "Sp3ctra",
+            },
           },
           {
             "@type": "Organization",
-            "name": "Sp3ctra",
-            "url": "https://sp3ctra.io",
-            "logo": "https://sp3ctra.io/favicon.svg",
-            "contactPoint": {
+            name: "Sp3ctra",
+            url: "https://sp3ctra.io",
+            logo: "https://sp3ctra.io/favicon.svg",
+            contactPoint: {
               "@type": "ContactPoint",
-              "email": "contact@sp3ctra.io",
-              "contactType": "Customer Support"
-            }
-          }
-        ]
-      }
-    </script>
+              email: "contact@sp3ctra.io",
+              contactType: "Customer Support",
+            },
+          },
+        ],
+      })}
+    />
 
     <meta http-equiv="Cache-control" content="public" />
 

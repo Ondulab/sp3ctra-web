@@ -20,7 +20,7 @@ pnpm preview       # Preview build locally
 
 ## Development
 
-For architecture details and development guidelines, see [CLAUDE.md](./CLAUDE.md).
+For architecture details and development guidelines, see [AGENTS.md](./AGENTS.md).
 
 ---
 

@@ -8,7 +8,7 @@ const { title, subtitle, questions } = copy.faq;
 <section class="container py-16 md:py-24">
   <SectionHeader title={title} />
 
-  <div class="mx-auto max-w-4xl">
+  <div>
     <h3 class="text-foreground mb-12 text-center text-3xl font-normal md:text-4xl">
       {subtitle}
     </h3>
@@ -19,7 +19,7 @@ const { title, subtitle, questions } = copy.faq;
           <details class="border-border group rounded-lg border bg-transparent transition-all duration-200">
             <summary class="hover:bg-surface/50 flex cursor-pointer items-center justify-between p-6 text-lg font-medium transition-colors">
               <span class="text-foreground pr-4">{item.question}</span>
-              <span class="text-primary flex-shrink-0 text-2xl transition-transform duration-200 group-open:rotate-45">
+              <span class="text-primary shrink-0 text-2xl transition-transform duration-200 group-open:rotate-45">
                 +
               </span>
             </summary>

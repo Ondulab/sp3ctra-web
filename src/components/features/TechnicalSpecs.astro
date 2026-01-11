@@ -1,7 +1,8 @@
 ---
 import { Picture } from "astro:assets";
 import copy from "@content/copy/fr.json";
-import deviceAngleView from "@assets/images/device.jpg";
+import deviceAngleView from "@assets/images/home/sp3ctra-product-device.jpg";
+import SectionHeader from "@components/base/SectionHeader.astro";
 
 const { title, specs, tags, imageAlt } = copy.technicalSpecs;
 ---
@@ -22,16 +23,12 @@ const { title, specs, tags, imageAlt } = copy.technicalSpecs;
 
     <!-- Technical specifications -->
     <div class="flex-1 lg:max-w-lg">
-      <div class="border-muted border-t pt-6">
-        <h2 class="text-foreground font-mono text-xl font-extralight leading-tight">
-          {title}
-        </h2>
-      </div>
+      <SectionHeader title={title} />
 
       <dl class="mt-8 flex flex-col gap-4">
         {
           specs.map((spec) => (
-            <div class="border-border flex justify-between gap-4 border-b pb-3">
+            <div class="flex justify-between gap-4 border-b border-gray-700 pb-3">
               <dt class="text-muted text-sm">{spec.label}</dt>
               <dd class="text-foreground text-sm">{spec.value}</dd>
             </div>

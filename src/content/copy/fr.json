@@ -1,7 +1,8 @@
 {
   "seo": {
     "title": "Sp3ctra",
-    "description": "Sp3ctra est une nouvelle génération d’instruments temps réel dédiés à la captation et à la synthèse spectrale. Ses 3456 capteurs photosensibles traduisent vos gestes et dessins en textures sonores et visuelles inédites, ouvrant de nouveaux territoires d’exploration artistique et scientifique.",
+    "description": "Sp3ctra est une nouvelle génération d'instruments temps réel dédiés à la captation et à la synthèse spectrale. Ses 3465 capteurs photosensibles traduisent vos gestes et dessins en textures sonores et visuelles inédites, ouvrant de nouveaux territoires d'exploration artistique et scientifique.",
+    "structuredDescription": "Sp3ctra est un dispositif de captation et de synthèse spectrale en temps réel. Ses 3465 capteurs photosensibles transforment vos gestes et dessins en textures sonores et visuelles inédites, ouvrant de nouveaux territoires d'exploration artistique et scientifique.",
     "ogImage": "/images/og-image.jpg",
     "canonicalURL": "https://sp3ctra.io"
   },
@@ -12,15 +13,15 @@
   },
   "contact": {
     "mail": "contact@sp3ctra.io",
-    "subject": "[sp3ctra.io] : Demande de démo",
-    "body": "Bonjour,\n\nJe souhaiterais obtenir une démonstration de 'Sp3ctra'.\n\nMerci"
+    "subject": "[sp3ctra.io] : Demande de devis",
+    "body": "Bonjour,\n\nJe souhaiterais obtenir un devis de 'Sp3ctra'.\n\nMerci"
   },
   "hero": {
     "title": "Dessiner les sons.\nÉcouter les images",
     "subtitle": "Un système de captation innovant pour explorer de nouveaux territoires sonores et visuels.",
     "recognition": "Lauréat de l'Appel à Projets Innovants Universcience 2025"
   },
-  "bigText": {
+  "valueProposition": {
     "brand": "Sp3ctra",
     "text": "est une nouvelle génération d'instruments capable de",
     "highlight": "traduire lumière et mouvement en flux continu",

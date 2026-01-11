@@ -10,6 +10,8 @@
       "@assets/*": ["./src/assets/*"],
       "@scripts/*": ["./src/scripts/*"],
       "@features/*": ["./src/features/*"],
+      "@constants/*": ["./src/constants/*"],
+      "@icons/*": ["./src/icons/*"],
       "@/*": ["./src/*"]
     },
     "verbatimModuleSyntax": true

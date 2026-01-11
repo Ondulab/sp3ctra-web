@@ -1,14 +1,16 @@
 {
   "name": "sp3ctra-web",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "optimize-images": "node scripts/optimize-images.js",
+    "optimize-images:dry": "node scripts/optimize-images.js --dry-run"
   },
   "dependencies": {
     "@amplitude/analytics-browser": "^2.33.1",
@@ -18,7 +20,7 @@
     "@fontsource/jetbrains-mono": "^5.2.8",
     "@lucide/astro": "^0.545.0",
     "@tailwindcss/vite": "^4.1.18",
-    "astro": "^5.16.6",
+    "astro": "^5.16.8",
     "astro-icon": "^1.1.5",
     "tailwind-merge": "^3.4.0",
     "tailwind-variants": "^3.2.2",
@@ -28,7 +30,8 @@
   "devDependencies": {
     "prettier": "3.6.2",
     "prettier-plugin-astro": "0.14.1",
-    "prettier-plugin-tailwindcss": "0.6.14"
+    "prettier-plugin-tailwindcss": "0.6.14",
+    "sharp": "^0.33.5"
   },
-  "packageManager": "pnpm@10.24.0+sha512.01ff8ae71b4419903b65c60fb2dc9d34cf8bb6e06d03bde112ef38f7a34d6904c424ba66bea5cdcf12890230bf39f9580473140ed9c946fef328b6e5238a345a"
+  "packageManager": "pnpm@10.28.0+sha512.05df71d1421f21399e053fde567cea34d446fa02c76571441bfc1c7956e98e363088982d940465fd34480d4d90a0668bc12362f8aa88000a64e83d0b0e47be48"
 }

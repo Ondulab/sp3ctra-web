@@ -2,8 +2,8 @@
 import { Picture, Image } from "astro:assets";
 
 import copy from "@content/copy/fr.json";
-import heroImage from "@assets/images/main-spectra3.jpg";
-import palmIcon from "@assets/images/palm.svg";
+import heroImage from "@assets/images/home/sp3ctra-hero-main.jpg";
+import palmIcon from "@icons/palm.svg";
 import Button from "@components/base/Button.astro";
 import ArrowRight from "@lucide/astro/icons/arrow-right";
 
@@ -69,9 +69,3 @@ const emailHref = `mailto:${copy.contact.mail}?subject=${encodeURIComponent(copy
     />
   </div>
 </section>
-
-<script>
-  // Initialize fade-in animation using existing animations.ts
-  import { initFadeInImages } from "@/scripts/animations";
-  initFadeInImages();
-</script>

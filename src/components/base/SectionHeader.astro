@@ -1,13 +1,49 @@
 ---
-interface Props {
+import { tv, type VariantProps } from "tailwind-variants";
+
+const sectionHeaderStyles = tv({
+  base: "",
+  variants: {
+    variant: {
+      boxed: "border-foreground w-fit border-2 px-6 py-3",
+      line: "container flex items-center gap-8 py-12 md:py-24",
+      underline: "border-muted border-t pt-6 md:text-2xl tracking-wide uppercase",
+    },
+  },
+  defaultVariants: {
+    variant: "underline",
+  },
+});
+
+const titleStyles = tv({
+  base: "font-mono",
+  variants: {
+    variant: {
+      boxed: "text-foreground text-xl tracking-wide md:text-2xl",
+      line: "text-sm font-semibold tracking-[0.2em] text-foreground uppercase",
+      underline: "text-foreground ",
+    },
+  },
+});
+
+interface Props extends VariantProps<typeof sectionHeaderStyles> {
   title: string;
+  class?: string;
 }
 
-const { title } = Astro.props;
+const { title, variant, class: className } = Astro.props;
 ---
 
-<div class="border-foreground w-fit border-2 px-6 py-3">
-  <h2 class="text-foreground font-mono text-xl tracking-wide md:text-2xl">
-    {title}
-  </h2>
-</div>
+{
+  variant === "line" ? (
+    <div class={sectionHeaderStyles({ variant, className })}>
+      <div class="to-foreground h-px flex-1 bg-linear-to-r from-transparent" />
+      <h2 class={titleStyles({ variant })}>{title}</h2>
+      <div class="to-foreground h-px flex-1 bg-linear-to-l from-transparent" />
+    </div>
+  ) : (
+    <div class={sectionHeaderStyles({ variant, className })}>
+      <h2 class={titleStyles({ variant })}>{title}</h2>
+    </div>
+  )
+}
