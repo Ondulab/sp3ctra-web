@@ -28,8 +28,8 @@
 
   /* Colors - Use semantic classes in components */
   /* text-foreground, text-muted, bg-background, bg-surface, border-border, etc. */
-  --color-background: #000000;
-  --color-foreground: #ffffff;
+  --color-background: #050505;
+  --color-foreground: #fafafa;
   --color-surface: #1a1a1a;
   --color-primary: #c9a7ff; /*bd76fe*/
   --color-secondary: #508aff;
@@ -59,9 +59,21 @@
 
   /* Gradients - Brand Gradients */
   --gradient-primary: linear-gradient(to right, var(--color-primary), var(--color-secondary));
-  --gradient-primary-reverse: linear-gradient(to right, var(--color-secondary), var(--color-primary));
-  --gradient-primary-vertical: linear-gradient(to bottom, var(--color-primary), var(--color-secondary));
-  --gradient-primary-overlay: linear-gradient(to right, color-mix(in srgb, var(--color-primary) 20%, transparent), color-mix(in srgb, var(--color-secondary) 20%, transparent));
+  --gradient-primary-reverse: linear-gradient(
+    to right,
+    var(--color-secondary),
+    var(--color-primary)
+  );
+  --gradient-primary-vertical: linear-gradient(
+    to bottom,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  --gradient-primary-overlay: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--color-primary) 20%, transparent),
+    color-mix(in srgb, var(--color-secondary) 20%, transparent)
+  );
 
   /* Transitions */
   --transition-fast: 150ms;
@@ -139,6 +151,12 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.text-gradient-reset {
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  background-clip: unset;
 }
 
 .text-muted {

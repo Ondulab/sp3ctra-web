@@ -1,7 +1,7 @@
 ---
 import { Picture } from "astro:assets";
 import copy from "@content/copy/fr.json";
-import deviceAngleView from "@assets/images/home/sp3ctra-product-device.jpg";
+import device from "@assets/images/home/sp3ctra-product-device.jpg";
 import SectionHeader from "@components/base/SectionHeader.astro";
 
 const { title, specs, tags, imageAlt } = copy.technicalSpecs;
@@ -9,10 +9,9 @@ const { title, specs, tags, imageAlt } = copy.technicalSpecs;
 
 <section class="container py-16 md:py-24">
   <div class="flex flex-col gap-12 lg:flex-row lg:gap-16">
-    <!-- Device image -->
-    <div class="flex-1">
+    <div class="flex-3">
       <Picture
-        src={deviceAngleView}
+        src={device}
         alt={imageAlt}
         widths={[480, 640, 800]}
         formats={["avif", "webp"]}
@@ -21,8 +20,7 @@ const { title, specs, tags, imageAlt } = copy.technicalSpecs;
       />
     </div>
 
-    <!-- Technical specifications -->
-    <div class="flex-1 lg:max-w-lg">
+    <div class="flex-2 lg:max-w-lg">
       <SectionHeader title={title} />
 
       <dl class="mt-8 flex flex-col gap-4">

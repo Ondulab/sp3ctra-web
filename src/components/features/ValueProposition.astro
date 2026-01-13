@@ -6,13 +6,13 @@ const { brand, text, highlight, ending } = copy.valueProposition;
 
 <section class="mx-auto max-w-5xl py-16 md:py-24 lg:py-32">
   <p
-    class="text-foreground/95 text-center text-2xl leading-relaxed font-normal tracking-wide md:text-3xl lg:text-4xl"
+    class="text-foreground/90 text-center text-2xl leading-relaxed tracking-wide md:text-3xl lg:text-4xl"
   >
     <span class="font-semibold">{brand}</span>
     {text}
     <span class="text-gradient-primary-reverse font-semibold">
-      {highlight}
-    </span>.
+      {highlight}<span class="text-gradient-reset">.</span>
+    </span>
     {ending}
   </p>
 </section>

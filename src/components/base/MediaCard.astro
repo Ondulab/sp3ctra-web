@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
-import PlayCircle from "@lucide/astro/icons/youtube";
+import Youtube from "@lucide/astro/icons/youtube";
 import ExternalLink from "@lucide/astro/icons/external-link";
 import Link from "@lucide/astro/icons/link";
 
@@ -28,7 +28,7 @@ const {
 const getLinkIcon = () => {
   switch (linkType) {
     case "youtube":
-      return PlayCircle;
+      return Youtube;
     case "external":
       return ExternalLink;
     case "internal":
@@ -44,8 +44,8 @@ const Component = isClickable ? "a" : "div";
 const linkProps = isClickable
   ? {
       href,
-      target: linkType === "external" ? "_blank" : undefined,
-      rel: linkType === "external" ? "noopener noreferrer" : undefined,
+      target: linkType === "external" || "youtube" ? "_blank" : undefined,
+      rel: linkType === "external" || "youtube" ? "noopener noreferrer" : undefined,
     }
   : {};
 ---
@@ -61,7 +61,10 @@ const linkProps = isClickable
   <Image
     src={src}
     alt={alt}
-    class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+    class:list={[
+      "h-full w-full object-cover transition-transform duration-300",
+      { "group-hover:scale-105": isClickable },
+    ]}
     loading={loading}
   />
 
@@ -77,7 +80,7 @@ const linkProps = isClickable
   <!-- Caption (if provided and showCaption is true) -->
   {
     caption && showCaption && (
-      <div class="border-border absolute right-0 bottom-0 left-0 border-t bg-black/80 px-4 py-3 backdrop-blur-sm">
+      <div class="border-border absolute right-0 bottom-0 left-0 border-t bg-black/70 px-4 py-3 backdrop-blur-sm">
         <div class="flex items-center gap-2">
           {isClickable && <IconComponent class="text-foreground h-5 w-5 shrink-0" />}
           <p class="text-foreground text-sm font-medium">{caption}</p>

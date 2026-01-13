@@ -74,9 +74,10 @@
     "description": "Découvrez Sp3ctra en action à travers des sessions live et des expérimentations visuelles. L'instrument traduit en temps réel les gestes et la lumière en textures sonores et visuelles, offrant une expérience immersive unique.",
     "videos": [
       {
-        "title": "Session prototype avec modulations eurorack",
+        "title": "Session prototype avec le musicien et compositeur Ilia Osokin.",
         "thumbnail": "/images/live-concert.jpg",
-        "videoId": ""
+        "videoId": "FIW-cVhQ2Gg",
+        "linkType": "youtube"
       },
       {
         "title": "Exploration visuelle spectrale",
@@ -90,16 +91,12 @@
     "description": "Sp3ctra ouvre de nouveaux champs d'exploration pour la recherche scientifique et l'enseignement. Son SDK open-source permet d'expérimenter avec la captation linéaire haute résolution et la synthèse spectrale en temps réel.",
     "items": [
       {
-        "title": "Documentation technique et SDK",
-        "image": "/images/device.jpg",
-        "link": "https://github.com/sp3ctra",
-        "linkType": "external"
+        "title": "Modèle sur rail pour l’exposition “La Musique des photos”, à Paris 2025-2026",
+        "image": "/images/device.jpg"
       },
       {
-        "title": "Applications pédagogiques",
-        "image": "/images/sp3ctra_expo_la_musique_des_photons6.jpg",
-        "link": "/education",
-        "linkType": "internal"
+        "title": "Partitions graphiques",
+        "image": "/images/sp3ctra_expo_la_musique_des_photons6.jpg"
       }
     ]
   },
@@ -114,7 +111,7 @@
   },
   "faq": {
     "title": "FAQ",
-    "subtitle": "Everything you need to know",
+    "subtitle": "Tout ce que vous devez savoir sur Sp3ctra",
     "questions": [
       {
         "question": "Quels sont les domaines d'application de Sp3ctra ?",
