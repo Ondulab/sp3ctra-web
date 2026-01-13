@@ -7,7 +7,7 @@ import SectionHeader from "@components/base/SectionHeader.astro";
 const { title, specs, tags, imageAlt } = copy.technicalSpecs;
 ---
 
-<section class="container py-16 md:py-24">
+<section data-section="technicalSpecs" class="container py-16 md:py-24">
   <div class="flex flex-col gap-12 lg:flex-row lg:gap-16">
     <div class="flex-3">
       <Picture
@@ -21,14 +21,18 @@ const { title, specs, tags, imageAlt } = copy.technicalSpecs;
     </div>
 
     <div class="flex-2 lg:max-w-lg">
-      <SectionHeader title={title} />
+      <SectionHeader title={title} data-content="title" />
 
       <dl class="mt-8 flex flex-col gap-4">
         {
-          specs.map((spec) => (
+          specs.map((spec, index) => (
             <div class="flex justify-between gap-4 border-b border-gray-700 pb-3">
-              <dt class="text-muted text-sm">{spec.label}</dt>
-              <dd class="text-foreground text-sm">{spec.value}</dd>
+              <dt data-content={`spec-label-${index}`} class="text-muted text-sm">
+                {spec.label}
+              </dt>
+              <dd data-content={`spec-value-${index}`} class="text-foreground text-sm">
+                {spec.value}
+              </dd>
             </div>
           ))
         }
@@ -36,8 +40,11 @@ const { title, specs, tags, imageAlt } = copy.technicalSpecs;
 
       <div class="mt-8 flex flex-wrap gap-3">
         {
-          tags.map((tag) => (
-            <span class="bg-surface text-foreground rounded-sm px-4 py-2 text-xs font-medium">
+          tags.map((tag, index) => (
+            <span
+              data-content={`tag-${index}`}
+              class="bg-surface text-foreground rounded-sm px-4 py-2 text-xs font-medium"
+            >
               {tag}
             </span>
           ))

@@ -5,12 +5,18 @@ import SectionHeader from "@components/base/SectionHeader.astro";
 const { title, subtitle, paragraphs } = copy.about;
 ---
 
-<section class="container grid grid-cols-2 gap-12 py-16 md:py-24">
-  <SectionHeader title={title} />
+<section data-section="about" class="container grid grid-cols-2 gap-12 py-16 md:py-24">
+  <SectionHeader title={title} data-content="title" />
 
   <div class="mx-auto max-w-4xl">
     <div class="space-y-6">
-      {paragraphs.map((paragraph) => <p class="text-muted text-lg leading-relaxed">{paragraph}</p>)}
+      {
+        paragraphs.map((paragraph, index) => (
+          <p data-content={`paragraph-${index}`} class="text-muted text-lg leading-relaxed">
+            {paragraph}
+          </p>
+        ))
+      }
     </div>
   </div>
 </section>

@@ -8,7 +8,7 @@ import expoCiteDesSciences from "@assets/images/blog/2025-10-18-cite-des-science
 const { sectionTitle, expo2025 } = copy.news;
 ---
 
-<section class="container flex flex-col gap-12 py-16 md:py-24">
-  <SectionHeader title={sectionTitle} />
+<section data-section="news" class="container flex flex-col gap-12 py-16 md:py-24">
+  <SectionHeader title={sectionTitle} data-content="title" />
   <NewsCard content={expo2025} image={expoCiteDesSciences} />
 </section>

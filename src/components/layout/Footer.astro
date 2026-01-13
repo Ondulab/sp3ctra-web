@@ -10,17 +10,19 @@ const email = encodeURIComponent(copy.contact.mail);
 const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
 ---
 
-<footer class="border-border mt-12 border-t md:mt-24">
+<footer data-section="footer" class="border-border mt-12 border-t md:mt-24">
   <div class="container px-4 py-8 md:px-6 md:py-14 lg:px-8">
     <div class="flex flex-col items-center justify-between gap-8 md:flex-row">
       <div class="flex flex-col items-center gap-6 md:flex-row md:gap-8">
         <div class="text-center md:text-left">
-          <Button href={`mailto:${copy.contact.mail}`} variant="link" size="sm"
+          <Button data-content="email" href={`mailto:${copy.contact.mail}`} variant="link" size="sm"
             >{copy.contact.mail}</Button
           >
         </div>
       </div>
-      <Button href={mailtoLink} size="sm" icon={Mail}>{copy.buttons.quote}</Button>
+      <Button data-content="button-quote" href={mailtoLink} size="sm" icon={Mail}
+        >{copy.buttons.quote}</Button
+      >
     </div>
   </div>
 </footer>

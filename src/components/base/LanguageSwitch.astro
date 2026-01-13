@@ -1,0 +1,68 @@
+---
+import Languages from "@lucide/astro/icons/languages";
+import ChevronDown from "@lucide/astro/icons/chevron-down";
+
+const languages = [
+  { value: "fr", label: "Français" },
+  { value: "en", label: "English" },
+] as const;
+---
+
+<div class="relative inline-block" data-language-switch>
+  <button
+    type="button"
+    class="border-border text-foreground hover:border-foreground flex cursor-pointer items-center gap-2 rounded border bg-transparent py-1.5 pr-2 pl-3 font-mono text-sm font-medium transition-colors"
+    data-trigger
+  >
+    <Languages class="h-4 w-4 opacity-70" aria-hidden="true" />
+    <span data-label>Français</span>
+    <ChevronDown class="h-3 w-3 opacity-50" />
+  </button>
+
+  <ul
+    class="border-border absolute top-full left-0 z-50 mt-1 hidden min-w-full rounded border bg-neutral-950"
+    data-menu
+  >
+    {
+      languages.map(({ value, label }) => (
+        <li
+          data-value={value}
+          class="text-foreground cursor-pointer px-3 py-2 font-mono text-sm hover:bg-white/10 [&[aria-selected=true]]:bg-violet-500/20"
+        >
+          {label}
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<script>
+  import { languageStore } from "@features/i18n/store";
+
+  const root = document.querySelector("[data-language-switch]")!;
+  const trigger = root.querySelector("[data-trigger]")!;
+  const menu = root.querySelector("[data-menu]")!;
+  const label = root.querySelector("[data-label]")!;
+  const options = root.querySelectorAll<HTMLElement>("[data-value]");
+
+  const setLang = (lang: string) => {
+    options.forEach((o) => o.setAttribute("aria-selected", String(o.dataset.value === lang)));
+    label.textContent = [...options].find((o) => o.dataset.value === lang)?.textContent ?? lang;
+  };
+
+  setLang(languageStore.get());
+
+  trigger.addEventListener("click", () => menu.classList.toggle("hidden"));
+
+  options.forEach((opt) =>
+    opt.addEventListener("click", () => {
+      languageStore.set(opt.dataset.value as "fr" | "en");
+      setLang(opt.dataset.value!);
+      menu.classList.add("hidden");
+    })
+  );
+
+  document.addEventListener("click", (e) => {
+    if (!root.contains(e.target as Node)) menu.classList.add("hidden");
+  });
+</script>

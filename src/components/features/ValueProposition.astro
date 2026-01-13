@@ -4,15 +4,15 @@ import copy from "@content/copy/fr.json";
 const { brand, text, highlight, ending } = copy.valueProposition;
 ---
 
-<section class="mx-auto max-w-5xl py-16 md:py-24 lg:py-32">
+<section data-section="valueProposition" class="mx-auto max-w-5xl py-16 md:py-24 lg:py-32">
   <p
     class="text-foreground/90 text-center text-2xl leading-relaxed tracking-wide md:text-3xl lg:text-4xl"
   >
-    <span class="font-semibold">{brand}</span>
-    {text}
+    <span data-content="brand" class="font-semibold">{brand}</span>
+    <span data-content="text">{text}</span>
     <span class="text-gradient-primary-reverse font-semibold">
-      {highlight}<span class="text-gradient-reset">.</span>
+      <span data-content="highlight">{highlight}</span><span class="text-gradient-reset">.</span>
     </span>
-    {ending}
+    <span data-content="ending">{ending}</span>
   </p>
 </section>

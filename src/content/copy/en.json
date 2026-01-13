@@ -1,0 +1,138 @@
+{
+  "seo": {
+    "title": "Sp3ctra",
+    "description": "Sp3ctra is a new generation of real-time instruments dedicated to spectral capture and synthesis. Its 3465 photosensitive sensors translate your gestures and drawings into unprecedented sound and visual textures, opening new territories of artistic and scientific exploration.",
+    "structuredDescription": "Sp3ctra is a real-time spectral capture and synthesis device. Its 3465 photosensitive sensors transform your gestures and drawings into unprecedented sound and visual textures, opening new territories of artistic and scientific exploration.",
+    "ogImage": "/images/og-image.jpg",
+    "canonicalURL": "https://sp3ctra.io"
+  },
+  "buttons": {
+    "demo": "Request a demo",
+    "quote": "Request a quote",
+    "more": "Learn more"
+  },
+  "contact": {
+    "mail": "contact@sp3ctra.io",
+    "subject": "[sp3ctra.io]: Quote request",
+    "body": "Hello,\n\nI would like to get a quote for 'Sp3ctra'.\n\nThank you"
+  },
+  "hero": {
+    "title": "Draw sounds.\nListen to images.",
+    "subtitle": "An innovative capture system to explore new sound and visual territories.",
+    "recognition": "Winner of the Universcience 2025 Innovative Projects Call"
+  },
+  "valueProposition": {
+    "brand": "Sp3ctra",
+    "text": "is a new generation of instruments capable of",
+    "highlight": "translating light and movement into a continuous flow",
+    "ending": "An open-source technology for artistic, scientific and educational uses."
+  },
+  "news": {
+    "sectionTitle": "News",
+    "expo2025": {
+      "badge": "",
+      "category": "Exhibition",
+      "title": "The music of photons",
+      "description": "Come test the instrument at the Cité des Sciences and see how drawings, gestures and light transform into sound and visual matter.",
+      "dates": "October 18, 2025 - March 8, 2026",
+      "location": "Cité des Sciences et de l'Industrie (level 2), Paris",
+      "access": "Level 2, near the entrance to the exhibition 'The great story of the Universe'",
+      "imageAlt": "Sp3ctra installation at the exhibition The music of photons",
+      "link": "https://www.cite-sciences.fr/en/practical-information",
+      "linkText": "Plan your visit"
+    }
+  },
+  "technicalSpecs": {
+    "title": "TECHNICAL SPECIFICATIONS",
+    "imageAlt": "Sp3ctra - View of the linear capture device",
+    "specs": [
+      {
+        "label": "Sensors",
+        "value": "3465 RGB 460 DPI"
+      },
+      {
+        "label": "Oscillators",
+        "value": "3465 digital"
+      },
+      {
+        "label": "Flow",
+        "value": "UDP 1 KHz stable"
+      },
+      {
+        "label": "Connections",
+        "value": "Ethernet, USB, API"
+      },
+      {
+        "label": "Libraries",
+        "value": "Python, C/C++, Max/MSP"
+      }
+    ],
+    "tags": ["Open Source", "Microtonal", "Real-time"]
+  },
+  "liveMedia": {
+    "title": "LIVE AUDIO/VIDEO",
+    "description": "Discover Sp3ctra in action through live sessions and visual experiments. The instrument translates gestures and light into sound and visual textures in real-time, offering a unique immersive experience.",
+    "videos": [
+      {
+        "title": "Prototype session with musician and composer Ilia Osokin.",
+        "thumbnail": "/images/live-concert.jpg",
+        "videoId": "FIW-cVhQ2Gg",
+        "linkType": "youtube"
+      },
+      {
+        "title": "Spectral visual exploration",
+        "thumbnail": "/images/live-visual.jpg",
+        "videoId": ""
+      }
+    ]
+  },
+  "research": {
+    "title": "RESEARCH AND EDUCATION",
+    "description": "Sp3ctra opens new fields of exploration for scientific research and teaching. Its open-source SDK allows experimentation with high-resolution linear capture and real-time spectral synthesis.",
+    "items": [
+      {
+        "title": "Rail model for the exhibition 'The Music of Photons', Paris 2025-2026",
+        "image": "/images/device.jpg"
+      },
+      {
+        "title": "Graphic scores",
+        "image": "/images/sp3ctra_expo_la_musique_des_photons6.jpg"
+      }
+    ]
+  },
+  "about": {
+    "title": "About",
+    "subtitle": "Ondulab",
+    "paragraphs": [
+      "Ondulab was born from fifteen years of experimentation within Réso-nance Numérique and LFO, Marseille's first fablab. This journey has forged a culture of prototyping, collaboration and openness, with a constant objective: making digital instruments truly accessible.",
+      "Over time, one thing becomes clear: accessibility requires ergonomics, simplicity and autonomy of use. An instrument must be usable without technical prerequisites.",
+      "The meeting with Devisubox marks a turning point: moving beyond the prototype to design a reliable and industrializable object. Sp3ctra embodies this shift: a complete instrument, designed for real use, allowing non-experts to appropriate complex digital tools."
+    ]
+  },
+  "faq": {
+    "title": "FAQ",
+    "subtitle": "Everything you need to know about Sp3ctra",
+    "questions": [
+      {
+        "question": "What are the application areas of Sp3ctra?",
+        "answer": "Sp3ctra is aimed at musicians, visual artists, teachers, researchers and engineers wishing to explore linear capture and spectral synthesis. The instrument can be used for sound creation, interactive installations, teaching sound physics, or developing innovative interfaces."
+      },
+      {
+        "question": "Do I need technical skills to use Sp3ctra?",
+        "answer": "No. Sp3ctra was designed to be accessible without technical prerequisites. The interface allows immediate handling through gesture and tactile exploration. For advanced uses (programming, integration), an open-source SDK and complete documentation are available."
+      },
+      {
+        "question": "Can I develop my own applications with Sp3ctra?",
+        "answer": "Yes. Sp3ctra comes with an open-source SDK including Python, C/C++ and Max/MSP libraries. You can access raw sensor data via Ethernet or USB to create your own processing algorithms."
+      },
+      {
+        "question": "What is the system latency?",
+        "answer": "The data flow is stable at 1 KHz with latency below 5 ms, ensuring a real-time experience suitable for live performances and gestural interactions."
+      },
+      {
+        "question": "How can I try Sp3ctra?",
+        "answer": "You can test the instrument at the Cité des Sciences et de l'Industrie (Paris) until March 2026 as part of the exhibition 'The music of photons'. For a personalized demonstration or quote, contact us via the form."
+      }
+    ]
+  }
+}

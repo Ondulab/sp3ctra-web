@@ -2,6 +2,7 @@
 import copy from "@content/copy/fr.json";
 import { Image } from "astro:assets";
 import SocialLink from "@components/base/SocialLink.astro";
+import LanguageSwitch from "@components/base/LanguageSwitch.astro";
 import logo from "@assets/images/site/sp3ctra-logo.png";
 ---
 
@@ -10,17 +11,20 @@ import logo from "@assets/images/site/sp3ctra-logo.png";
     <a href="/" aria-label="Sp3ctra homepage" title="Sp3ctra homepage">
       <Image src={logo} alt={copy.seo.title} height={24} priority />
     </a>
-    <div class="flex items-center gap-2">
-      <SocialLink
-        icon="linkedin"
-        href="https://www.linkedin.com/company/sp3ctra/"
-        ariaLabel="LinkedIn Sp3ctra"
-      />
-      <SocialLink
-        icon="instagram"
-        href="https://www.instagram.com/sp3ctra.io/"
-        ariaLabel="Instagram Sp3ctra"
-      />
+    <div class="flex items-center gap-4">
+      <div class="flex items-center gap-2">
+        <SocialLink
+          icon="linkedin"
+          href="https://www.linkedin.com/company/sp3ctra/"
+          ariaLabel="LinkedIn Sp3ctra"
+        />
+        <SocialLink
+          icon="instagram"
+          href="https://www.instagram.com/sp3ctra.io/"
+          ariaLabel="Instagram Sp3ctra"
+        />
+      </div>
+      <LanguageSwitch />
     </div>
   </div>
 </header>

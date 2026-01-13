@@ -4,9 +4,16 @@ import SectionHeader from "./SectionHeader.astro";
 interface Props {
   title: string;
   description: string;
+  "data-content-title"?: string;
+  "data-content-description"?: string;
 }
 
-const { title, description } = Astro.props;
+const {
+  title,
+  description,
+  "data-content-title": dataTitleContent,
+  "data-content-description": dataDescContent,
+} = Astro.props;
 ---
 
 <section class="container py-16 md:py-24">
@@ -14,10 +21,13 @@ const { title, description } = Astro.props;
     <!-- Left column: Title and description -->
     <div class="flex flex-col gap-6">
       <!-- Title with border frame -->
-      <SectionHeader title={title} />
+      <SectionHeader title={title} data-content={dataTitleContent} />
 
       <!-- Description text -->
-      <p class="text-muted max-w-prose text-base leading-relaxed md:text-lg">
+      <p
+        data-content={dataDescContent}
+        class="text-muted max-w-prose text-base leading-relaxed md:text-lg"
+      >
         {description}
       </p>
     </div>

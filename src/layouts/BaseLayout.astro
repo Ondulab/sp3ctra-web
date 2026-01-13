@@ -1,9 +1,11 @@
 ---
 // SEO
-import copy from "@content/copy/fr.json";
+import enCopy from "@content/copy/en.json";
 
 import BackgroundSpectrum from "@components/layout/BackgroundSpectrum.astro";
 
+// Default to English for server-side rendering
+const copy = enCopy;
 const title = copy.seo.title;
 const description = copy.seo.description;
 const structuredDescription = copy.seo.structuredDescription;
@@ -14,7 +16,7 @@ import "../styles/global.css";
 ---
 
 <!doctype html>
-<html lang="fr" class="scroll-pt-16 scroll-smooth">
+<html lang="en" class="scroll-pt-16 scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,11 +29,18 @@ import "../styles/global.css";
     <meta name="author" content="Jérôme Abel" />
     <meta name="robots" content="index, follow" />
 
+    <!-- hreflang tags for language variants -->
+    <link rel="alternate" hreflang="fr" href={canonicalURL} />
+    <link rel="alternate" hreflang="en" href={canonicalURL} />
+    <link rel="alternate" hreflang="x-default" href={canonicalURL} />
+
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="fr_FR" />
 
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={Astro.url} />
@@ -84,6 +93,9 @@ import "../styles/global.css";
     <script>
       import { initFadeInImages } from "@scripts/animations";
       initFadeInImages();
+    </script>
+    <script>
+      import "@scripts/language";
     </script>
   </body>
 </html>

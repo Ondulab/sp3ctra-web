@@ -13,6 +13,7 @@ interface Props {
   href?: string;
   linkType?: "youtube" | "external" | "internal";
   loading?: "lazy" | "eager";
+  "data-content"?: string;
 }
 
 const {
@@ -23,6 +24,7 @@ const {
   href,
   linkType = "internal",
   loading = "lazy",
+  "data-content": dataContent,
 } = Astro.props;
 
 const getLinkIcon = () => {
@@ -83,7 +85,9 @@ const linkProps = isClickable
       <div class="border-border absolute right-0 bottom-0 left-0 border-t bg-black/70 px-4 py-3 backdrop-blur-sm">
         <div class="flex items-center gap-2">
           {isClickable && <IconComponent class="text-foreground h-5 w-5 shrink-0" />}
-          <p class="text-foreground text-sm font-medium">{caption}</p>
+          <p data-content={dataContent} class="text-foreground text-sm font-medium">
+            {caption}
+          </p>
         </div>
       </div>
     )

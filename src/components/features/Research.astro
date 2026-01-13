@@ -9,10 +9,22 @@ const { title, description, items } = copy.research;
 const itemImages = [deviceImage, expoImage];
 ---
 
-<FeatureSection title={title} description={description}>
-  {
-    items.map((item, index) => (
-      <MediaCard src={itemImages[index]} alt={item.title} caption={item.title} />
-    ))
-  }
-</FeatureSection>
+<div data-section="research">
+  <FeatureSection
+    title={title}
+    description={description}
+    data-content-title="title"
+    data-content-description="description"
+  >
+    {
+      items.map((item, index) => (
+        <MediaCard
+          src={itemImages[index]}
+          alt={item.title}
+          caption={item.title}
+          data-content={`item-title-${index}`}
+        />
+      ))
+    }
+  </FeatureSection>
+</div>

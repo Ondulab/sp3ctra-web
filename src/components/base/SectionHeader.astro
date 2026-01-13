@@ -29,21 +29,26 @@ const titleStyles = tv({
 interface Props extends VariantProps<typeof sectionHeaderStyles> {
   title: string;
   class?: string;
+  "data-content"?: string;
 }
 
-const { title, variant, class: className } = Astro.props;
+const { title, variant, class: className, "data-content": dataContent } = Astro.props;
 ---
 
 {
   variant === "line" ? (
     <div class={sectionHeaderStyles({ variant, className })}>
       <div class="to-foreground h-px flex-1 bg-linear-to-r from-transparent" />
-      <h2 class={titleStyles({ variant })}>{title}</h2>
+      <h2 data-content={dataContent} class={titleStyles({ variant })}>
+        {title}
+      </h2>
       <div class="to-foreground h-px flex-1 bg-linear-to-l from-transparent" />
     </div>
   ) : (
     <div class={sectionHeaderStyles({ variant, className })}>
-      <h2 class={titleStyles({ variant })}>{title}</h2>
+      <h2 data-content={dataContent} class={titleStyles({ variant })}>
+        {title}
+      </h2>
     </div>
   )
 }
